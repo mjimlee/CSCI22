@@ -11,6 +11,7 @@
 
 #landing__company__logo {
     padding-left: 9rem;
+    background-color: var(--white);
 }
 
 .nav__buttons {
@@ -43,6 +44,7 @@
 
 #dashboard__company__logo{
     padding-left: 3rem;
+    background-color: transparent !important;
 }
 
 .dashboard__nav__text {

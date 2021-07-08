@@ -34,7 +34,10 @@ h3 { font-size: 20px; line-height: 32px;}
 p, .body { font-size: 16px; line-height: 26px; }
 .subtitle { font-size: 14px; line-height: 22px;}
 .caption { font-size: 12px; }
-li { list-style: none; }
+li { 
+  list-style: none;
+  background-color: transparent;
+}
 
 .medium { font-weight: 600; }
 .bold { font-weight: 700; }
@@ -45,11 +48,16 @@ li { list-style: none; }
   text-transform: uppercase;
 }
 
+span {
+  background-color: transparent;
+}
+
 a {
   font-size: 14px;
   padding: 10px 24px 8px 24px;
   text-decoration: none;
   line-height: 22px;
+  background-color: transparent;
 }
 
 button {
