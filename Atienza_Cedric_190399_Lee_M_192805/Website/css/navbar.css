@@ -19,9 +19,7 @@
     padding-right: 9rem;
 }
 
-.button {
-    margin: 0 0.5rem;
-}
+.button { margin: 0 0.5rem; }
 
 .dashboard__nav__container {
     display: flex;
@@ -68,6 +66,4 @@
     align-content: center;
 }
 
-#black-arrow-icon {
-    padding: 0.25rem;
-}
+#black-arrow-icon { padding: 0.25rem; }

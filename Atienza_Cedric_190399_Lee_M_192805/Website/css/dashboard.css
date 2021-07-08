@@ -30,25 +30,29 @@
     box-shadow:rgba(110, 231, 183, 0.1);
     border-radius: 10px;
     border: 1px solid #E5E7EB;
-    background-color: #F9FAFB;
+    background-color: var(--white);
     margin: 0 1.5rem;
     padding: 1rem;
 }
 
 .card__title {
     color: #6B7280;
+    background-color: var(--white);
     font-weight: 600;
 }
 
 .card__value {
+    background-color: var(--white);
     padding: 0.3rem;
 }
 
 .card__redirect {
-    color: var(--primary-enabled);  
-    padding: 0 !important;
     display: flex;
     justify-content: start;
+    color: var(--primary-enabled);  
+    background-color: var(--white);
+    font-weight: 500;
+    padding: 0 !important;
 } 
 
 #card__icon {

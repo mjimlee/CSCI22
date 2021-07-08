@@ -5,10 +5,6 @@
     grid-template-columns: 65% 35%;
 }
 
-.display__field {
-    background-color: #C4C4C4;
-}
+.display__field { background-color: #C4C4C4; }
 
-.signin__field {
-    background-color: var(--white);
-}
+.signin__field { background-color: var(--white); }
