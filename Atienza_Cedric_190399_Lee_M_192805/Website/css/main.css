@@ -2,7 +2,12 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #F5FFFA;
+    background-color: #F9FAFB;
+}
+
+.container {
+  height: 100%;
+  width: 100%;
 }
 
 body {

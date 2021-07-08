@@ -8,7 +8,8 @@
     height: 80px;
     background-color: var(--white);
 }
-#company__logo {
+
+#landing__company__logo {
     padding-left: 9rem;
 }
 
@@ -19,4 +20,52 @@
 
 .button {
     margin: 0 0.5rem;
+}
+
+.dashboard__nav__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    border: 1px solid rgba(209, 213, 219, 1);
+    width: 100%;
+    height: 80px;
+    background-color: var(--white);
+}
+
+.dashboard__items {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    background-color: var(--white);
+}
+
+#dashboard__company__logo{
+    padding-left: 3rem;
+}
+
+.dashboard__nav__text {
+    color: #6B7280;
+    background-color: var(--white);
+    font-weight: 600;
+}
+
+.user__info {
+    padding: 0.375rem;
+    margin: 0 5rem;
+    border-radius: 1.25rem;
+    border: 1px solid #E5E7EB;
+    background-color: #F9FAFB;
+}
+
+.user_items {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+#black-arrow-icon {
+    padding: 0.25rem;
 }

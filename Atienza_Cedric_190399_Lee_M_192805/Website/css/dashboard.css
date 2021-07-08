@@ -1,0 +1,14 @@
+.body__container {
+    width: 100%;
+    height: 100%;
+}
+
+.body__wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+}
+
+.dashboard__header {
+    color: #374151;
+}

@@ -1,0 +1,14 @@
+.body__wrapper {
+    width: 100%;
+    height: 100%;
+    display:grid;
+    grid-template-columns: 65% 35%;
+}
+
+.display__field {
+    background-color: #C4C4C4;
+}
+
+.signin__field {
+    background-color: var(--white);
+}
