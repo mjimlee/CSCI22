@@ -56,5 +56,6 @@
 } 
 
 #card__icon {
+    background-color: var(--white);
     padding: 0 0.125rem;
 }
