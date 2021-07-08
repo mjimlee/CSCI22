@@ -10,7 +10,7 @@ body {
 }
 
 :root {
-  --primary-enabled: #34D399; 
+  --primary-enabled: #10B981; 
   --primary-hover: #6EE7B7;
   --primary-pressed: #059669;
   --white: #FFF;
@@ -115,4 +115,3 @@ button {
   box-shadow: none;
   color: var(--primary-pressed)
 }
-
