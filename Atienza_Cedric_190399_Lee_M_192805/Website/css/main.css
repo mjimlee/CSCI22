@@ -34,10 +34,12 @@ h3 { font-size: 20px; line-height: 32px;}
 .caption { font-size: 12px; }
 
 p {
+  width: auto;
   font-size: 16px; 
   line-height: 26px;
   background-color: transparent;
 }
+
 li { 
   list-style: none;
   background-color: transparent;
@@ -143,15 +145,14 @@ button {
 /* Table CSS */
 
 .table__box {
-  margin: 31px auto;
+  overflow-x: scroll;
+  margin: 0 5rem;
 }
 
 .table__row{
   display: table;
   width: 100%;
-  margin: 10px;
   font-family: 'Roboto', sans-serif;
-  padding: 12px 0;
   color: #2C2C2C;
   font-size: 10px;
 }
@@ -161,7 +162,7 @@ button {
   height: 56px;
   font-weight: 600;
   color: #2C2C2C;
-  background-color: #F1F3F5;
+  background-color: #F1F3F5 !important;
 }
 
 .table__head .table__cell{
@@ -174,7 +175,7 @@ button {
   font-weight: 600;
   font-size: 12px;
   color: #6B7280;
-  text-align: center;
+  text-align: left;
   align-items: center;
   align-content: center;
 }
@@ -186,8 +187,9 @@ button {
 .table__cell{
   font-size: 12px;
   display: table-cell;
-  width: 20%;
-  text-align: center;
+  width: 10%;
+  height: 72px;
+  text-align: left;
   vertical-align: middle;
   background-color: transparent;
 }
@@ -206,22 +208,26 @@ button {
 }
 
 .first__cell{
-  text-align: center;
-  padding-left: 10px;
+  text-align: left;
+  padding: 0 2rem;
 }
 
+/* .custom__cell {
+  text-align: center;
+  border-right: none;
+  font-size: 10px;
+} */
+
 .last__cell {
+  text-align: center;
   border-right: none;
   font-size: 10px;
 }
-/* 
+
 .table__row:nth-child(even) {
-  background-color: #F0F3FF;
+  background-color: #FFF;
   height: 38px;
 }
 .table__row:nth-child(odd) {
-  background-color: #FFFFFF;
+  background-color: #F9FAFB;
 }
-.table__row:active {
-background-color: #E1E6FF;
-} */
