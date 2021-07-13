@@ -82,6 +82,8 @@ button {
   height: auto;
   border-radius: 10px;
   border: none;
+  width: 137px;
+  height: 36px;
 }
 
 .primary-btn {
@@ -176,8 +178,6 @@ button {
   font-size: 12px;
   color: #6B7280;
   text-align: left;
-  align-items: center;
-  align-content: center;
 }
 
 #gray-arrow-icon {
@@ -212,22 +212,45 @@ button {
   padding: 0 2rem;
 }
 
-/* .custom__cell {
-  text-align: center;
-  border-right: none;
-  font-size: 10px;
-} */
-
 .last__cell {
   text-align: center;
   border-right: none;
   font-size: 10px;
 }
 
-.table__row:nth-child(even) {
-  background-color: #FFF;
-  height: 38px;
+.table__row:nth-child(even) { background-color: #FFF; }
+
+.table__row:nth-child(odd) { background-color: #F9FAFB; }
+
+.input__field__short {
+  width: 364px;
+  height: 48px;
+  padding: 0 1rem;
+  margin: 0.5rem 0 1.5rem 0;
+  color: gray;
+  border: 1px solid #9CA3AF;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
-.table__row:nth-child(odd) {
-  background-color: #F9FAFB;
+
+.input__field__long {
+  width: 520px;
+  height: 160px;
+  padding: 0 1rem;
+  margin: 0.5rem 0 1.5rem 0;
+  color: gray;
+  border: 1px solid #9CA3AF;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+hr {
+  margin: 1rem 5rem;
+}
+
+.button__element {
+  width: 520px;
+  height: 76px;
+  display: flex;
+  margin: 2.5rem 0 0 18rem;
 }
