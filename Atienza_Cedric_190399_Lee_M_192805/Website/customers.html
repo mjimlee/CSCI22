@@ -6,7 +6,7 @@
     <title>choobEats</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/food.css">
 
     <nav class="dashboard__nav__container">
         <div class="dashboard__items">
@@ -16,8 +16,8 @@
                 id="dashboard__company__logo"></a></li>
             <li><a href="dashboard.html" class="dashboard__nav__text">Dashboard</a></li>
             <li><a href="orders.html" class="dashboard__nav__text">Orders</a></li>
-            <li><a href="food.html" class="dashboard__nav__text">Food</a></li>
-            <li><a href="customers.html" class="dashboard__nav__text"><span style="color:var(--primary-enabled);">Customers</span></a></li>
+            <li><a href="food.html" class="dashboard__nav__text"><span style="color:var(--primary-enabled);">Food</span></a></li>
+            <li><a href="customers.html" class="dashboard__nav__text">Customers</a></li>
             <li><a href="revenue.html" class="dashboard__nav__text">Revenue</a></li>    
         </div>
         <div class="user__info">
@@ -32,8 +32,18 @@
 <body>
     <section class="body__container">
         <div class="body__wrapper">
-            <h3 class="bold" id="dashboard__header">Hey there!</h3>
-            <p id="landing__subtext">Take your business to the next level with choobEats.</p>
+            <div class="header__elements">
+                <h3 class="bold" id="dashboard__header">My Customers</h3>
+                <button class="primary-btn"><a href="addfood.html" id="order__add__button">Add new customer</a></button>
+            </div>
+            <div class="order__table">
+                <div class="order__row">1</div>
+                <div class="order__row">2</div>
+                <div class="order__row">3</div>
+                <div class="order__row">4</div>
+                <div class="order__row">5</div>
+                <div class="order__row">6</div>
+            </div>
         </div>
     </section>
 </body>
