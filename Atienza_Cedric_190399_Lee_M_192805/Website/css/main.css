@@ -192,7 +192,7 @@ button {
 .table__cell{
   font-size: 12px;
   display: table-cell;
-  width: 10%;
+  width: 5%;
   height: 72px;
   text-align: left;
   vertical-align: middle;
@@ -214,7 +214,7 @@ button {
 
 .first__cell{
   text-align: left;
-  padding: 0 2rem;
+  padding: 0 0 0 2rem;
 }
 
 .last__cell {
