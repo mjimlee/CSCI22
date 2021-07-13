@@ -3,19 +3,55 @@
 
 <head>
     <meta charset="utf-8">
+    <title>Orders</title>
     <link rel="stylesheet" href="css/main.css">
-    <title>tralulu</title>
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/food.css">
 
     <nav class="nav__container">
-
+        <div class="items">
+            <li><a href="dashboard.html"><img 
+                src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
+                alt="choobEats Logo"
+                id="company__logo"></a></li>
+            <li><a href="dashboard.html" class="nav__text">Dashboard</a></li>
+            <li><a href="orders.html" class="nav__text"><span style="color:var(--primary-enabled);">Orders</span></a></li>
+            <li><a href="food.html" class="nav__text">Food</a></li>
+            <li><a href="customers.html" class="nav__text">Customers</a></li>
+            <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
+        </div>
+        <div class="user__info">
+            <div class="user_items">
+                <img src="assets/avatar.png" alt="User display picture">
+                <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/black-down-arrow-icon_EuPaPjaYH2.svg" alt="Arrow Icon" id="black-arrow-icon">
+            </div>
+        </div>
     </nav>
 </head>
 
 <body>
-    <div class="container">
+    <section class="body__container">
         <div class="body__wrapper">
-
+            <div class="header__elements">
+                <a href="food.html" class="food__header">
+                    <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-left-arrow_Z1zQd3vTE.svg" alt="Gray Arrow">
+                    Add a product
+                </a>
+            </div>
+            <div class="input__elements">
+                <p class="input__title">Product Name</p>
+                <input class="input__field__short" type="text" placeholder="Name">
+                <p class="input__title">Price</p>
+                <input class="input__field__short" type="text" placeholder="PHP">
+                <p class="input__title">Product Description</p>
+                <input class="input__field__long" type="text" placeholder="Type here...">
+            </div>
+            <hr style="width: 520px;">
+            <div class="button__element">
+                <button class="button secondary-btn" id="nevermind-product-btn">Never mind</button>
+                <button class="button primary-btn" id="save-product-btn">Save product</button>
+            </div>
         </div>
-    </div>
+    </section>
 </body>
 </html>

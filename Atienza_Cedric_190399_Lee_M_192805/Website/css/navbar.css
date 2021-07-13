@@ -21,7 +21,7 @@
 
 .button { margin: 0 0.5rem; }
 
-.dashboard__nav__container {
+.nav__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,7 +32,7 @@
     background-color: var(--white);
 }
 
-.dashboard__items {
+.items {
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -40,12 +40,12 @@
     background-color: var(--white);
 }
 
-#dashboard__company__logo{
+#company__logo{
     padding-left: 3rem;
     background-color: transparent !important;
 }
 
-.dashboard__nav__text {
+.nav__text {
     color: #6B7280;
     background-color: var(--white);
     font-weight: 600;

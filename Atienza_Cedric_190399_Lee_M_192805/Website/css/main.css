@@ -82,7 +82,7 @@ button {
   height: auto;
   border-radius: 10px;
   border: none;
-  width: 137px;
+  width: 155px;
   height: 36px;
 }
 
@@ -142,6 +142,11 @@ button {
   border: none;
   box-shadow: none;
   color: var(--primary-pressed)
+}
+
+.header {
+  color: #374151;
+  margin: 2.5rem 5rem 1rem 5rem;
 }
 
 /* Table CSS */
@@ -221,6 +226,24 @@ button {
 .table__row:nth-child(even) { background-color: #FFF; }
 
 .table__row:nth-child(odd) { background-color: #F9FAFB; }
+
+
+.table__cell-status__RECEIVED {
+  color: #059669;
+  background-color: #D1FAE5;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  width: 72px;
+  height: 24px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .input__field__short {
   width: 364px;
