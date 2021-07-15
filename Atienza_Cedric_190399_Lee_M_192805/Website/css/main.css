@@ -4,7 +4,10 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    /* background-color: #F9FAFB; */
+}
+
+body {
+  background-color: #F9FAFB;
 }
 
 .container {
