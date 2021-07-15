@@ -93,13 +93,23 @@
     box-shadow: 0px 2px 20px 0px rgba(51, 51, 51, 0.05);
 }
 
-.feature-grid {
+.feature-grid-1 {
     display: grid;
     grid-template-columns: 0.8fr 0.75fr;
     align-items: center;
 }
 
+.feature-grid-2 {
+    display: grid;
+    grid-template-columns: 0.75fr 0.8fr;
+    align-items: center;
+}
 
-.feature-text {
+
+.feature-text-1 {
     margin-left: 80px;
+}
+
+.feature-text-2 {
+    margin-right: 80px;
 }
