@@ -142,3 +142,39 @@
 #cta img {
     max-width: 80%;
 }
+
+.landing-footer {
+    padding: 40px 0;
+    background-color: #fff;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.footer-company {
+    max-width: 30%;
+}
+
+.footer-company img {
+    max-height: 48px; 
+}
+
+.grid-footer-navs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px;
+}
+
+.grid-footer-navs-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-footer-navs-item a {
+    padding: 12px 0px;
+    text-align: left;
+}
