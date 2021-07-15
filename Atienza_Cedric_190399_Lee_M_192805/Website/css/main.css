@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #F9FAFB;
+    /* background-color: #F9FAFB; */
 }
 
 .container {
@@ -10,7 +12,7 @@
   width: 100%;
 }
 
-body { overflow-x: hidden; }
+body { overflow-x: hidden; font-family: 'Inter', sans-serif;}
 
 :root {
   --primary-enabled: #10B981; 
@@ -29,9 +31,30 @@ h1, h2, h3, p, a, input, .body, .subtitle {
 h1 { font-size: 36px; line-height: 40px; font-weight: 600;}
 h2 { font-size: 24px; }
 h3 { font-size: 20px; line-height: 32px;}
+
 .body { font-size: 16px; line-height: 26px; }
 .subtitle { font-size: 14px; line-height: 22px;}
 .caption { font-size: 12px; }
+
+.text-sm { font-size: 14px; line-height: 20px;}
+.text-base { font-size: 16px; line-height: 24px;}
+.text-xl { font-size: 20px; line-height: 28px;}
+.text-5xl { font-size: 48px; line-height: 48px;}
+
+.font-normal {font-weight:400;}
+.font-medium {font-weight:500;}
+.font-semibold {font-weight:600;}
+.font-bold {font-weight: 700;}
+
+.text-white {color: #fff}
+.text-gray-500 {color: #6B7280}
+
+.text-margin-8 {margin-top: 8px;}
+.text-margin-12 {margin-top: 12px;}
+.text-margin-16 {margin-top: 16px;}
+.text-margin-24 {margin-top: 24px;}
+
+.side-margin-12 { margin: 0 12%; }
 
 p {
   width: auto;
@@ -58,19 +81,23 @@ span { background-color: transparent; }
 
 a {
   font-size: 14px;
-  padding: 10px 24px 8px 24px;
+  padding: 12px 24px;
   text-decoration: none;
+  font-weight: 500;
   line-height: 22px;
   background-color: transparent;
+  transition: all 0.2s
 }
 
 a:hover {
   color: var(--primary-enabled);
   font-size: 14px;
-  padding: 10px 24px 8px 24px;
+  padding: 12px 24px;
+  font-weight: 500;
   text-decoration: none;
   line-height: 22px;
   background-color: transparent;
+  transition: all 0.2s
 }
 
 button {
@@ -82,18 +109,18 @@ button {
   height: auto;
   border-radius: 10px;
   border: none;
-  width: 155px;
-  height: 36px;
 }
 
 .primary-btn {
   background: var(--primary-enabled);
+  border: 1px solid var(--primary-enabled);
   color: var(--white);
   border-radius: 10px;
 }
 
 .primary-btn:hover {
   background: var(--primary-hover);
+  border: 1px solid var(--primary-hover);
   color: var(--white);
   border-radius: 10px;
 }
@@ -114,6 +141,20 @@ button {
   border: 1px solid var(--primary-enabled);
   background-color: var(--primary-enabled);
   color: var(--white);
+  border-radius: 10px;
+}
+
+.secondary-btn-white {
+  border: 1px solid var(--white);
+  color: var(--white);
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+.secondary-btn-white:hover {
+  border: 1px solid var(--primary-enabled);
+  color: var(--primary-enabled);
+  background-color: transparent;
   border-radius: 10px;
 }
 
