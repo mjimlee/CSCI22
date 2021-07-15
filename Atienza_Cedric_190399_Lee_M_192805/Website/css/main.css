@@ -117,8 +117,8 @@ button {
   justify-content: center;
   align-items: center;
   align-content: center;
-  width: auto;
-  height: auto;
+  width: 150px;
+  height: 36px;
   border-radius: 10px;
   border: none;
 }
