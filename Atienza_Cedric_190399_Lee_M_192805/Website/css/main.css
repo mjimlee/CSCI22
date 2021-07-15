@@ -245,6 +245,7 @@ button {
   font-size: 12px;
   display: table-cell;
   width: 5%;
+  max-width: 144px;
   height: 72px;
   text-align: left;
   vertical-align: middle;
@@ -298,7 +299,7 @@ button {
 }
 
 .input__field__half {
-  width: 182px;
+  width: 180px;
   height: 48px;
   padding: 0 1rem;
   margin: 0.5rem 0 1.5rem 0;
