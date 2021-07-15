@@ -78,6 +78,10 @@
     align-items: center;
 }
 
+.container-justify-between {
+    justify-content: space-between;
+}
+
 .support-logos {
     margin-top: 24px;
     max-width: 60%;
@@ -102,4 +106,25 @@
     grid-template-columns: 1fr 1fr;
     column-gap: 80px;
     align-items: center;
+}
+
+#testimonies {
+    padding: 40px 0px;
+    background-color: #1F2937;
+}
+
+.grid-testimonies {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24px;
+}
+
+.grid-testimonies-item {
+    background-color: #fff;
+    padding: 24px 16px;
+    border-radius: 6px;
+}
+
+.grid-testimonies-item img {
+    height: 40px;
 }
