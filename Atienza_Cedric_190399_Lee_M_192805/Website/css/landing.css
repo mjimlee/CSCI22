@@ -155,4 +155,11 @@
 .grid-footer-navs-item a {
     padding: 12px 0px;
     text-align: left;
+    font-weight: 400;
+}
+
+.grid-footer-navs-item a:hover {
+    padding: 12px 0px;
+    text-align: left;
+    font-weight: 400;
 }
