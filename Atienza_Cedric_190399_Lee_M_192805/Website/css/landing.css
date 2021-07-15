@@ -128,3 +128,17 @@
 .grid-testimonies-item img {
     height: 40px;
 }
+
+#cta {
+    padding: 40px 0;
+}
+
+.cta-button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+}
+
+#cta img {
+    max-width: 80%;
+}
