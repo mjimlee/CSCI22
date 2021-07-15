@@ -43,11 +43,14 @@
     margin-left: 16px;
 }
 
+/* testing commit */
+
 #hero {
     min-height: 100vh;
     background-image: url("../assets/hero-bg.png");
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+
+    background-size: cover;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,7 +68,8 @@
 }
 
 #support {
-    padding: 40px 0px;
+    padding: 40px 0px 56px 0px;
+    background-color: #fff;
 }
 
 .container-vert-centered {
