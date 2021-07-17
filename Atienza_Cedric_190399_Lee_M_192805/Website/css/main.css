@@ -208,7 +208,7 @@ button {
   margin: 0 5rem;
 }
 
-.table__row{
+.table__row {
   display: table;
   width: 100%;
   font-family: 'Roboto', sans-serif;
@@ -216,7 +216,7 @@ button {
   font-size: 10px;
 }
 
-.table__head{
+.table__head {
   font-size: 10px;
   height: 56px;
   font-weight: 600;
@@ -340,4 +340,64 @@ hr {
   height: 76px;
   display: flex;
   margin: 2.5rem 0 0 18rem;
+}
+
+@media screen and (max-width: 767px) {
+.header {
+  color: #374151;
+  margin: 0rem 0rem 1rem 0rem;
+}
+
+.table__box {
+  margin: 0;
+}
+
+.table__row {
+  display: flex;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+  color: #2C2C2C;
+  font-size: 10px;
+}
+
+.table__head {
+  font-size: 10px;
+  height: 56px;
+  font-weight: 600;
+  color: #2C2C2C;
+  background-color: #F1F3F5 !important;
+  display:none;
+}
+
+.table__cell {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  height: auto;
+  text-align: left;
+  vertical-align: middle;
+  background-color: transparent;
+  margin-left: 40px;
+}
+
+#table__cell-text {
+  font-size: 14px;
+  line-height: 20px;
+  color: #374151;
+  padding: 8px;
+}
+
+.first__cell{
+  text-align: left;
+  padding: 0 0 0 2rem;
+  display: none;
+}
+
+.last__cell {
+  text-align: center;
+  border-right: none;
+  font-size: 10px;
+  display:none;
+}
 }
