@@ -177,8 +177,8 @@
     .feature-grid {
         display: grid;
         grid-template-columns: none;
-        grid-template-rows: 1fr 1fr;
-        column-gap: 80px;
+        grid-template-rows: 1fr 0.5fr;
+        row-gap: 24px;
         align-items: center;
     }
 
@@ -194,7 +194,7 @@
     }
 
     .support-logos {
-        margin-top: 16px;
+        margin-top: 24px;
         max-width: 100%;
         display: grid;
         grid-template-columns: 1fr;
@@ -209,14 +209,14 @@
     }
 
     .footer-container {
-        flex-direction: column-reverse;
+        flex-direction: column;
     }
 
     .grid-footer-navs {
         display: grid;
         grid-template-columns: 1fr 1fr;
         column-gap: 80px;
-        margin-bottom: 40px;
+        margin-top: 40px;
     }
 
     .footer-company {
