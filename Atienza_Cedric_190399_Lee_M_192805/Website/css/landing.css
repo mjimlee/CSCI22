@@ -163,3 +163,35 @@
     text-align: left;
     font-weight: 400;
 }
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 1fr;
+        column-gap: 80px;
+        align-items: center;
+    }
+
+
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+
+    .side-margin-12 {
+        margin: 0 20%;
+    }
+
+    .landing-footer {
+        padding: 40px 16%;
+    }
+
+    #hero-container {
+        margin: 0 12%;
+    }
+
+    .hero-nav {
+        padding: 0 12%;
+    }
+}
