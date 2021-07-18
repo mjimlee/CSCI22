@@ -401,3 +401,21 @@ hr {
   display:none;
 }
 }
+
+
+/* responsiveness */
+
+@media only screen and (max-width: 719px) {
+
+  .text-xl { font-size: 20px; line-height: 28px;}
+  .text-5xl { font-size: 40px; line-height: 48px;}
+
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+
+  .side-margin-12 {
+    margin: 0 20%;
+  }
+
+}
