@@ -229,7 +229,7 @@
 @media only screen and (min-width: 1440px) and (max-width: 1919px) {
 
     .landing-footer {
-        padding: 40px 16%;
+        padding: 40px 12%;
     }
 
     #hero-container {
@@ -238,5 +238,20 @@
 
     .hero-nav {
         padding: 0 12%;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+
+    #hero-container {
+        margin: 0 20%;
+    }
+
+    .landing-footer {
+        padding: 40px 20%;
+    }
+
+    .hero-nav {
+        padding: 0 20%;
     }
 }
