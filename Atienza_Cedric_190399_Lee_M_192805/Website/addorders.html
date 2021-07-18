@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Products</title>
+    <title>Orders</title>
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/food.css">
@@ -15,8 +15,8 @@
                 alt="choobEats Logo"
                 id="company__logo"></a></li>
             <li><a href="dashboard.html" class="nav__text">Dashboard</a></li>
-            <li><a href="orders.html" class="nav__text">Orders</a></li>
-            <li><a href="food.html" class="nav__text"><span style="color:var(--primary-enabled);">Food</span></a></li>
+            <li><a href="orders.html" class="nav__text"><span style="color:var(--primary-enabled);">Orders</span></a></li>
+            <li><a href="food.html" class="nav__text">Food</a></li>
             <li><a href="customers.html" class="nav__text">Customers</a></li>
             <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
         </div>
@@ -33,23 +33,36 @@
     <section class="body__container">
         <div class="body__wrapper">
             <div class="header__elements">
-                <a href="food.html" class="food__header">
+                <a href="orders.html" class="food__header">
                     <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-left-arrow_Z1zQd3vTE.svg" alt="Gray Arrow">
-                    Add a product
+                    Add an order
                 </a>
             </div>
             <div class="input__elements">
-                <p class="input__title">Product Name</p>
+                <p class="input__title">Customer Name</p>
                 <input class="input__field__short" type="text" placeholder="Name">
-                <p class="input__title">Price</p>
-                <input class="input__field__short" type="text" placeholder="PHP">
-                <p class="input__title">Product Description</p>
-                <input class="input__field__long" type="text" placeholder="Type here...">
+                <p class="input__title">Customer Email</p>
+                <input class="input__field__short" type="text" placeholder="Email">
+                <p class="input__title">Customer Mobile Number</p>
+                <input class="input__field__short" type="text" placeholder="Mobile Number">
+                <p class="input__title">Shipping Address</p>
+                <input class="input__field__short" type="text" style="margin: 0.5rem 0 0 0;;"placeholder="Street Address">
+                <div class="custom__input__field">
+                    <input class="input__field__half" type="text" placeholder="City">
+                    <input class="input__field__half" type="text" placeholder="Province">
+                </div>
+                <p class="input__title">Delivery Date</p>
+                <input class="input__field__short" type="text" style="margin: 0.5rem 0 0 0;;"placeholder="Street Address">
+                <div class="custom__input__field">
+                    <input class="input__field__half" type="text" placeholder="Month" style="width: 135px;">
+                    <input class="input__field__half" type="text" placeholder="Day" style="width: 110px;">
+                    <input class="input__field__half" type="text" placeholder="Year" style="width: 110px;">
+                </div>
             </div>
             <hr style="width: 520px;">
             <div class="button__element">
                 <button class="button secondary-btn" id="nevermind-product-btn">Never mind</button>
-                <button class="button primary-btn" id="save-product-btn">Save product</button>
+                <button class="button primary-btn" id="save-product-btn">Save customer</button>
             </div>
         </div>
     </section>

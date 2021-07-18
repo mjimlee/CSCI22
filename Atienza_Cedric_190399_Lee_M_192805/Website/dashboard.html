@@ -20,13 +20,16 @@
             <li><a href="customers.html" class="nav__text">Customers</a></li>
             <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
         </div>
-        <div class="user__info">
-            <div class="user_items">
+        <div class="user__info" id="js_user_info">
+            <div class="user__items">
                 <img src="assets/avatar.png" alt="User display picture">
                 <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/black-down-arrow-icon_EuPaPjaYH2.svg" alt="Arrow Icon" id="black-arrow-icon">
             </div>
         </div>
     </nav>
+        <div class="user__items__text" id="js_user_items_popup">
+            <a href="index.html">Log Out</a>
+        </div>
 </head>
 
 <body>
@@ -50,7 +53,7 @@
                     <p><a href="orders.html" class="card__redirect">See all orders<img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green_right_arrow_XD7q8dkvuQk7.svg" alt="arrow icon" id="card__icon"></a></p>
                 </div>
             </div>
-            <h3 class="header bold" style="margin:2.5rem 5rem 1rem 5rem;">Latest Orders</h3>
+        <h3 class="header bold" style="margin:2.5rem 0rem 1rem 5rem;">Latest Orders</h3>
             <div class="dashboard__order__table">
                 <div class="table__box">
                     <div class="table__row table__head">
@@ -179,5 +182,14 @@
             </div>
         </div>
     </section>
+
+<script type="text/javascript">
+    const user = document.getElementById("js_user_info");
+    const popup = document.getElementById("js_user_items_popup");
+    
+    user.addEventListener('click', function() {
+        popup.classList.toggle("active");
+    });
+</script>
 </body>
 </html>
