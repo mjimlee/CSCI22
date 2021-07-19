@@ -55,3 +55,53 @@
 }
 
 #table__cell-price { font-weight: bold; }
+
+.basket__content {
+    width: 520px;
+    margin: 0 5rem;
+}
+
+.basket__table__row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0 1.5rem 0;
+}
+
+#basket__quantity__wrapper {
+    width: 54px;
+    height: 48px;
+    text-align: center;
+    border: 1px solid #9CA3AF;
+    border-radius: 8px;
+}
+
+#basket__quantity {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0.75rem 0;
+}
+
+.basket__product__item {
+    margin: 0 0 0 1.5rem;
+    align-self: center;
+}
+
+#basket__product {
+    font-size: 14px;
+    line-height: 20px;
+    color: #374151;
+}
+
+#basket__product__value {
+    font-size: 12px;
+    line-height: 16px;
+    color: #6B7280;
+}
+
+#basket__total {
+    width: 520px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5rem;
+    padding: 2.5rem 0;
+}
