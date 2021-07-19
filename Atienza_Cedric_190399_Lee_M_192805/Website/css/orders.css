@@ -56,6 +56,18 @@
 
 #table__cell-price { font-weight: bold; }
 
+#dropdown__input__field {
+    width: 364px;
+    height: 48px;
+    padding: 0 1rem;
+    margin: 0.5rem 0 1.5rem 0;
+    color: gray;
+    background-color: #FFF;
+    border: 1px solid #9CA3AF;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+  
 .basket__content {
     width: 520px;
     margin: 0 5rem;
