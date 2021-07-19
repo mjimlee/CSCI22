@@ -221,12 +221,17 @@ button {
   padding: 0px;
 }
 
-.table__row {
+.table__cell {
   display: table;
   width: 100%;
   font-family: 'Roboto', sans-serif;
   color: #2C2C2C;
   font-size: 10px;
+}
+
+.table__row a {
+  padding: 0;
+  text-align: left;
 }
 
 .table__head {
