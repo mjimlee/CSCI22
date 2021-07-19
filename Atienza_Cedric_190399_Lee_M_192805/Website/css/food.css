@@ -13,6 +13,7 @@
 .header__elements {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin: 2.5rem 5rem;
 }
 
