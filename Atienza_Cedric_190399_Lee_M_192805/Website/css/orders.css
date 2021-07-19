@@ -67,18 +67,14 @@
     padding: 0 0 1.5rem 0;
 }
 
-#basket__quantity__wrapper {
+#basket__item__quantity {
     width: 54px;
     height: 48px;
     text-align: center;
     border: 1px solid #9CA3AF;
     border-radius: 8px;
-}
-
-#basket__quantity {
+    margin:0;
     font-size: 14px;
-    line-height: 20px;
-    padding: 0.75rem 0;
 }
 
 .basket__product__item {
