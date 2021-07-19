@@ -86,6 +86,7 @@
     border-radius: 8px;
     margin:0;
     font-size: 14px;
+    overflow: hidden;
 }
 
 .basket__product__item {
