@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
 
     <nav class="nav__container">
-        <div class="items">
+        <div class="items" id="js_items">
             <li><a href="dashboard.html"><img 
                 src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
                 alt="choobEats Logo"
@@ -19,6 +19,11 @@
             <li><a href="food.html" class="nav__text">Food</a></li>
             <li><a href="customers.html" class="nav__text">Customers</a></li>
             <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
+        </div>
+        <div class="mobile__nav__display__icon">
+            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green-mobile-icon_OSFDvu2q3.svg" 
+            alt="Mobile Icon"
+            id="js_mobile_icon">
         </div>
         <div class="user__info" id="js_user_info">
             <div class="user__items">
@@ -151,6 +156,13 @@
     
     user.addEventListener('click', function() {
         popup.classList.toggle("active");
+    });
+
+    const mobileIcon = document.getElementById("js_mobile_icon");
+    const mobileNavDisplay = document.getElementById("js_items");
+    
+    mobileIcon.addEventListener('click', function() {
+        mobileNavDisplay.classList.toggle("active");
     });
 </script>
 </body>
