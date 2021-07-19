@@ -57,7 +57,7 @@
 #table__cell-price { font-weight: bold; }
 
 .basket__content {
-    width: 55%;
+    width: 520px;
     margin: 0 5rem;
 }
 
@@ -96,4 +96,12 @@
     font-size: 12px;
     line-height: 16px;
     color: #6B7280;
+}
+
+#basket__total {
+    width: 520px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 5rem;
+    padding: 2.5rem 0;
 }
