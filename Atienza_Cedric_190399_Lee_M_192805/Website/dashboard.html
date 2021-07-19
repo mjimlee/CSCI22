@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/dashboard.css">
 
     <nav class="nav__container">
-        <div class="items">
+        <div class="items" id="js_items">
             <li><a href="dashboard.html"><img 
                 src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
                 alt="choobEats Logo"
@@ -19,6 +19,11 @@
             <li><a href="food.html" class="nav__text">Food</a></li>
             <li><a href="customers.html" class="nav__text">Customers</a></li>
             <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
+        </div>
+        <div class="mobile__nav__display__icon">
+            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green-mobile-icon_OSFDvu2q3.svg" 
+            alt="Mobile Icon"
+            id="js_mobile_icon">
         </div>
         <div class="user__info" id="js_user_info">
             <div class="user__items">
@@ -80,7 +85,7 @@
                             <p><input id="checkbox-item" type="checkbox"></p>
                         </div>
                         <div class="table__cell">
-                            <p id="table__cell-text">June 13, 2021</p>
+                            <p id="table__cell-date">June 13, 2021</p>
                         </div>
                         <div class="table__cell">
                             <p id="table__cell-text"><a href="samples/order1.html"><span style="color:#10B981; text-decoration: underline;">CKG001</span></a></p>
@@ -92,8 +97,8 @@
                             <p id="table__cell-text">PHP 600.00</p>
                         </div>
                         <div class="table__cell last__cell">
-                            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon">
-                            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;">
+                            <a href="samples/editorder1.html"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon"></a>
+                            <a href="samples/editorder1.html"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;"></a>
                         </div>
                     </div>
 
@@ -102,7 +107,7 @@
                             <p><input id="checkbox-item" type="checkbox"></p>
                         </div>
                         <div class="table__cell">
-                            <p id="table__cell-text">June 13, 2021</p>
+                            <p id="table__cell-date">June 13, 2021</p>
                         </div>
                         <div class="table__cell">
                             <p id="table__cell-text"><a href="samples/order2.html"><span style="color:#10B981; text-decoration: underline;">CKG002</span></a></p>
@@ -114,8 +119,8 @@
                             <p id="table__cell-text">PHP 700.00</p>
                         </div>
                         <div class="table__cell last__cell">
-                            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon">
-                            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;">
+                            <a href="samples/editorder2.html"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon"></a>
+                            <a href="samples/editorder2.html"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;"></a>
                         </div>
                     </div>
 
@@ -124,7 +129,7 @@
                             <p><input id="checkbox-item" type="checkbox"></p>
                         </div>
                         <div class="table__cell">
-                            <p id="table__cell-text">June 13, 2021</p>
+                            <p id="table__cell-date">June 13, 2021</p>
                         </div>
                         <div class="table__cell">
                             <p id="table__cell-text"><a href="samples/order3.html"><span style="color:#10B981; text-decoration: underline;">CKG003</span></a></p>
@@ -145,14 +150,8 @@
         </div>
     </section>
 
-<script type="text/javascript">
-    const user = document.getElementById("js_user_info");
-    const popup = document.getElementById("js_user_items_popup");
-    
-    user.addEventListener('click', function() {
-        popup.classList.toggle("active");
-    });
-</script>
+<script src="nav.js"></script>
+
 </body>
 </html>
 
@@ -162,5 +161,5 @@
     </div>
     <div class="table__cell">
         <div class="table__cell-status__RECEIVED">RECEIVED</div>
-    </div> -->
+    </div> 
 -->

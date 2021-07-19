@@ -278,6 +278,12 @@ button {
   color: #374151;
 }
 
+#table__cell-date {
+  font-size: 14px;
+  line-height: 20px;
+  color: #374151;
+}
+
 .first__cell{
   text-align: left;
   padding: 0 0 0 2rem;
@@ -369,6 +375,7 @@ hr {
 
 .table__row {
   display: flex;
+  flex-direction: column;
   width: 100%;
   font-family: 'Roboto', sans-serif;
   color: #2C2C2C;
@@ -393,7 +400,7 @@ hr {
   text-align: left;
   vertical-align: middle;
   background-color: transparent;
-  margin-left: 40px;
+  margin-left: 10%;
 }
 
 #table__cell-text {
@@ -405,7 +412,7 @@ hr {
 
 .first__cell{
   text-align: left;
-  padding: 0 0 0 2rem;
+  padding: 1rem 0 0 2rem;
   display: none;
 }
 
@@ -414,6 +421,16 @@ hr {
   border-right: none;
   font-size: 10px;
   display:none;
+}
+
+#table__cell-date {
+  font-size: 14px;
+  color: #6B7280;
+  text-align: right;
+  width: 92px;
+  position: absolute;
+  right: 50px;
+  padding: 0.5rem 0 0 0;
 }
 }
 

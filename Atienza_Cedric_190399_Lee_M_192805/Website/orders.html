@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/orders.css">
 
     <nav class="nav__container">
-        <div class="items">
+        <div class="items" id="js_items">
             <li><a href="dashboard.html"><img 
                 src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
                 alt="choobEats Logo"
@@ -20,13 +20,21 @@
             <li><a href="customers.html" class="nav__text">Customers</a></li>
             <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
         </div>
-        <div class="user__info">
-            <div class="user_items">
-                <img src="assets/avatar.png" alt="User display picture">
+        <div class="mobile__nav__display__icon">
+            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green-mobile-icon_OSFDvu2q3.svg" 
+            alt="Mobile Icon"
+            id="js_mobile_icon">
+        </div>
+        <div class="user__info" id="js_user_info">
+            <div class="user__items">
+                <img src="assets/avatar.png" alt="User DP">
                 <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/black-down-arrow-icon_EuPaPjaYH2.svg" alt="Arrow Icon" id="black-arrow-icon">
             </div>
         </div>
     </nav>
+        <div class="user__items__text" id="js_user_items_popup">
+            <a href="index.html">Log Out</a>
+        </div>
 </head>
 
 <body>
@@ -168,5 +176,8 @@
             </div>
         </div>
     </section>
+
+<script src="nav.js"></script>
+
 </body>
 </html>
