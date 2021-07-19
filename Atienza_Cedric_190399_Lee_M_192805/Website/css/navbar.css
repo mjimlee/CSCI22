@@ -51,6 +51,10 @@
     font-weight: 600;
 }
 
+.nav__text:hover {
+    font-weight: 600;
+}
+
 .user__info {
     padding: 0.375rem;
     margin: 0 5rem;
