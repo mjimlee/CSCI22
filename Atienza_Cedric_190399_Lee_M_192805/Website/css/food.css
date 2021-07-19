@@ -53,3 +53,7 @@
 .product__info {
     margin: 0rem 5rem;
 }
+
+.product__details {
+    max-width: 50%;
+}
