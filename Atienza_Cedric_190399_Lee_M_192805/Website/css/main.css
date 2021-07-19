@@ -61,6 +61,7 @@ h3 { font-size: 20px; line-height: 32px;}
 .margin-32 {margin-top: 32px;}
 .margin-40 {margin-top: 40px;}
 .margin-64 {margin-top: 64px;}
+.margin-120 {margin-top: 120px;}
 
 .text-centered {text-align: center;}
 
@@ -405,7 +406,7 @@ hr {
   text-align: left;
   vertical-align: middle;
   background-color: transparent;
-  margin-left: 10%;
+  margin-left: 2rem;
 }
 
 #table__cell-text {
