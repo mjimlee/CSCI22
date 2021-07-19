@@ -25,8 +25,18 @@
     background-color: #fff;
 }
 
-.nav-logo {
+.nav-logo-link {
     height: 45%;
+    padding: 0;
+}
+
+.nav-logo-link:hover{
+    height: 45%;
+    padding: 0;
+}
+
+.nav-logo {
+    height: 100%;
 }
 
 .nav-buttons a {
