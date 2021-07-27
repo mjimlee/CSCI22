@@ -1,0 +1,283 @@
+.gray-bg {
+    background-color: #F9FAFB;
+}
+
+.hero-nav {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    position: absolute;
+    top: 0;
+}
+
+.nav-other {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8%;
+    position: absolute;
+    top: 0;
+    background-color: #fff;
+}
+
+.nav-logo-link {
+    height: 45%;
+    padding: 0;
+}
+
+.nav-logo-link:hover{
+    height: 45%;
+    padding: 0;
+}
+
+.nav-logo {
+    height: 100%;
+}
+
+.nav-buttons a {
+    margin-left: 16px;
+}
+
+/* testing commit */
+
+#hero {
+    min-height: 100vh;
+    background-image: url("../assets/hero-bg.png");
+    background-repeat: no-repeat;
+
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#hero-container {
+    margin: 0 8%;
+    background: none;
+    max-width: 50%;
+    height: auto;
+}
+
+#hero-container h1 {
+    margin-bottom: 40px;
+}
+
+#support {
+    padding: 40px 0px 56px 0px;
+    background-color: #fff;
+}
+
+.container-vert-centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-justify-between {
+    justify-content: space-between;
+}
+
+.support-logos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 40px;
+    justify-items: center;
+    margin-top: 24px;
+}
+
+.support-logos-item {
+    height: 24px;
+    padding: 0px 24px;
+}
+
+.feature {
+    padding: 80px 0px;
+}
+
+.landing-mockup {
+    max-width: 100%;
+    box-shadow: 0px 2px 20px 0px rgba(51, 51, 51, 0.05);
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px;
+    align-items: center;
+}
+
+#testimonies {
+    padding: 40px 0px;
+    background-color: #1F2937;
+}
+
+.grid-testimonies {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 24px;
+}
+
+.grid-testimonies-item {
+    background-color: #fff;
+    padding: 24px 16px;
+    border-radius: 6px;
+}
+
+.grid-testimonies-item img {
+    height: 40px;
+}
+
+#cta {
+    padding: 40px 0;
+}
+
+.cta-button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 16px;
+}
+
+#cta img {
+    max-width: 80%;
+}
+
+.landing-footer {
+    padding: 40px 8%;
+    background-color: #fff;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.footer-company {
+    max-width: 30%;
+}
+
+.footer-company img {
+    max-height: 48px; 
+}
+
+.grid-footer-navs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 80px;
+}
+
+.grid-footer-navs-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid-footer-navs-item a {
+    padding: 12px 0px;
+    text-align: left;
+    font-weight: 400;
+}
+
+.grid-footer-navs-item a:hover {
+    padding: 12px 0px;
+    text-align: left;
+    font-weight: 400;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+
+    .nav-logo-link {
+        height: 35%;
+    }
+    
+    .nav-logo {
+        height: 100%;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-rows: 1fr 0.5fr;
+        row-gap: 24px;
+        align-items: center;
+    }
+
+    .grid-reverse {
+        grid-row: 1;
+    }
+
+    .grid-testimonies {
+        display: grid;
+        grid-template-columns: 1fr;
+        column-gap: 0;
+        row-gap: 24px;
+    }
+
+    .support-logos {
+        margin-top: 24px;
+        max-width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+        justify-items: center;
+    }
+
+    .support-logos-item {
+        height: 24px;
+        padding: 0;
+        /* margin-top: 24px; */
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .grid-footer-navs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 80px;
+        margin-top: 40px;
+    }
+
+    .footer-company {
+        max-width: 100%;
+    }
+
+
+}
+
+@media only screen and (min-width: 1440px) and (max-width: 1919px) {
+
+    .landing-footer {
+        padding: 40px 12%;
+    }
+
+    #hero-container {
+        margin: 0 12%;
+    }
+
+    .hero-nav {
+        padding: 0 12%;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+
+    #hero-container {
+        margin: 0 20%;
+    }
+
+    .landing-footer {
+        padding: 40px 20%;
+    }
+
+    .hero-nav {
+        padding: 0 20%;
+    }
+}
