@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+    <nav class="nav__container">
+        <div class="items" id="js_items">
+            <li><a href="dashboard.html"><img 
+                src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
+                alt="choobEats Logo"
+                id="company__logo"></a></li>
+            <li><a href="dashboard.html" class="nav__text"><span style="color:var(--primary-enabled);">Dashboard</span></a></li>
+            <li><a href="orders.html" class="nav__text">Orders</a></li>
+            <li><a href="food.html" class="nav__text">Food</a></li>
+            <li><a href="customers.html" class="nav__text">Customers</a></li>
+            <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
+        </div>
+        <div class="mobile__nav__display__icon">
+            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green-mobile-icon_OSFDvu2q3.svg" 
+            alt="Mobile Icon"
+            id="js_mobile_icon">
+        </div>
+        <div class="user__info" id="js_user_info">
+            <div class="user__items">
+                <img src="assets/avatar.png" alt="User DP">
+                <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/black-down-arrow-icon_EuPaPjaYH2.svg" alt="Arrow Icon" id="black-arrow-icon">
+            </div>
+        </div>
+    </nav>
+        <div class="user__items__text" id="js_user_items_popup">
+            <a href="index.html">Log Out</a>
+        </div>
+
+    <section class="body__container">
+        <div class="body__wrapper">
+            <h3 class="header bold dashboard__header">Hey there!</h3>
+            <div class="dashboard__cards">
+                <div class="dashboard__card">
+                    <p class="card__title">Total Orders</p>
+                    <h3 class="card__value bold margin-8">26</h3>
+                    <p><a href="orders.html" class="card__redirect margin-12" >See all orders<img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green_right_arrow_XD7q8dkvuQk7.svg" alt="arrow icon" id="card__icon"></a></p>
+                </div>
+                <div class="dashboard__card">
+                    <p class="card__title">Total Revenue</p>
+                    <h3 class="card__value bold margin-8">PHP 6700</h3>
+                    <p><a href="revenue.html" class="card__redirect margin-12">See revenue<img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green_right_arrow_XD7q8dkvuQk7.svg" alt="arrow icon" id="card__icon"></a></p>
+                </div>
+                <div class="dashboard__card">
+                    <p class="card__title">Unique Customers</p>
+                    <h3 class="card__value bold margin-8">20</h3>
+                    <p><a href="orders.html" class="card__redirect margin-12">See customers<img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green_right_arrow_XD7q8dkvuQk7.svg" alt="arrow icon" id="card__icon"></a></p>
+                </div>
+            </div>
+        <h3 class="header bold dashboard__header">Latest Orders</h3>
+            <div class="margin-24">
+                <div class="table__box">
+                    <div class="table__row table__head">
+                        <div class="table__cell first__cell">
+                            <p><input id="checkbox-item" type="checkbox"></p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-header">Order Date <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-down-arrow_WRx44HttsD.svg" alt="Gray Arrow" id="gray-arrow-icon"></p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-header">Order #</p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-header">Customer Name</p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-header">Total Amount</p>
+                        </div>
+                        <div class="table__cell last__cell"></div>
+                    </div>
+
+                    <div class="table__row">
+                        <div class="table__cell first__cell">
+                            <p><input id="checkbox-item" type="checkbox"></p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-date">June 13, 2021</p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text"><a href="samples/order1.html"><span style="color:#10B981; text-decoration: underline;">CKG001</span></a></p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text">Shaun Lim</p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text">PHP 600.00</p>
+                        </div>
+                        <div class="table__cell last__cell">
+                            <a href="samples/editorder1.html"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon"></a>
+                            <a href="samples/editorder1.html"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;"></a>
+                        </div>
+                    </div>
+
+                    <div class="table__row">
+                        <div class="table__cell first__cell">
+                            <p><input id="checkbox-item" type="checkbox"></p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-date">June 13, 2021</p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text"><a href="samples/order2.html"><span style="color:#10B981; text-decoration: underline;">CKG002</span></a></p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text">Sir JM</p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text">PHP 700.00</p>
+                        </div>
+                        <div class="table__cell last__cell">
+                            <a href="samples/editorder2.html"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon"></a>
+                            <a href="samples/editorder2.html"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;"></a>
+                        </div>
+                    </div>
+
+                    <div class="table__row">
+                        <div class="table__cell first__cell">
+                            <p><input id="checkbox-item" type="checkbox"></p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-date">June 13, 2021</p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text"><a href="samples/order3.html"><span style="color:#10B981; text-decoration: underline;">CKG003</span></a></p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text">Apple Sr.</p>
+                        </div>
+                        <div class="table__cell">
+                            <p id="table__cell-text">PHP 1000.00</p>
+                        </div>
+                        <div class="table__cell last__cell">
+                            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon">
+                            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script src="nav.js"></script>
+
+</body>
+</html>
+
+<!-- Features in Version 2
+    <div class="table__cell">
+        <p id="table__cell-header">Status</p>
+    </div>
+    <div class="table__cell">
+        <div class="table__cell-status__RECEIVED">RECEIVED</div>
+    </div> 
+-->
