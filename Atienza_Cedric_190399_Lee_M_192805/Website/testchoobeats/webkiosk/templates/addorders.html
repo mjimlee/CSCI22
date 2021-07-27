@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add an Order</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/food.css">
+    <link rel="stylesheet" href="css/orders.css">
+</head>
+
+<body>
+    <nav class="nav__container">
+        <div class="items" id="js_items">
+            <li><a href="dashboard.html"><img 
+                src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
+                alt="choobEats Logo"
+                id="company__logo"></a></li>
+            <li><a href="dashboard.html" class="nav__text">Dashboard</a></li>
+            <li><a href="orders.html" class="nav__text"><span style="color:var(--primary-enabled);">Orders</span></a></li>
+            <li><a href="food.html" class="nav__text">Food</a></li>
+            <li><a href="customers.html" class="nav__text">Customers</a></li>
+            <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
+        </div>
+        <div class="mobile__nav__display__icon">
+            <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green-mobile-icon_OSFDvu2q3.svg" 
+            alt="Mobile Icon"
+            id="js_mobile_icon">
+        </div>
+        <div class="user__info" id="js_user_info">
+            <div class="user__items">
+                <img src="assets/avatar.png" alt="User DP">
+                <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/black-down-arrow-icon_EuPaPjaYH2.svg" alt="Arrow Icon" id="black-arrow-icon">
+            </div>
+        </div>
+    </nav>
+        <div class="user__items__text" id="js_user_items_popup">
+            <a href="index.html">Log Out</a>
+        </div>
+
+    <section class="body__container">
+        <div class="body__wrapper">
+            <div class="header__elements">
+                <a href="orders.html" class="food__header">
+                    <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-left-arrow_Z1zQd3vTE.svg" alt="Gray Arrow">
+                    Add an order
+                </a>
+            </div>
+            <div class="input__elements">
+                <p class="input__title">Customer Name</p>
+                <select id="dropdown__input__field">
+                    <option value="Arizona Robbins">Arizona Robbins</option>
+                    <option value="Atticus Lincoln">Atticus Lincoln</option>
+                    <option value="Bailey Grey-Shepherd">Bailey Grey-Shepherd</option>
+                    <option value="Sofia Robbin">Sofia Robbin</option>
+                    <option value="Winston Ndugu">Winston Ndugu</option>
+                </select> 
+                <p class="input__title">Customer Email</p>
+                <input class="input__field__short" type="text" placeholder="Email">
+                <p class="input__title">Customer Mobile Number</p>
+                <input class="input__field__short" type="text" placeholder="Mobile Number">
+                <p class="input__title">Payment Method</p>
+                <select id="dropdown__input__field">
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                </select>                
+                <p class="input__title">Shipping Address</p>
+                <input class="input__field__short" type="text" style="margin: 0.5rem 0 0 0;;"placeholder="Street Address">
+                <div class="custom__input__field">
+                    <input class="input__field__half" type="text" placeholder="City">
+                    <input class="input__field__half" type="text" placeholder="Province">
+                </div>
+                <p class="input__title">Delivery Date</p>
+                <input class="input__field__short" type="text" style="margin: 0.5rem 0 0 0;;"placeholder="Street Address">
+                <div class="custom__input__field">
+                    <input class="input__field__half" type="text" placeholder="Month" style="width: 135px;">
+                    <input class="input__field__half" type="text" placeholder="Day" style="width: 110px;">
+                    <input class="input__field__half" type="text" placeholder="Year" style="width: 110px;">
+                </div>
+            </div>
+            <hr style="width: 520px;">
+            <div class="basket__content">
+                <p class="header bold" style="padding: 0 0 1rem 0;">Basket</p>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0"></textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">Chocolate Chip Cookies</p>
+                                <p id="basket__product__value">PHP 650</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">0.00</p>
+                </div>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0"></textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">Nutella Cookies</p>
+                                <p id="basket__product__value">PHP 700</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">0.00</p>
+                </div>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0"></textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">Oatmeal Cookies</p>
+                                <p id="basket__product__value">PHP 650</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">0.00</p>
+                </div>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0">1</textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">Raisin Cookies</p>
+                                <p id="basket__product__value">PHP 600</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">600.00</p>
+                </div>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0">1</textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">White Chocolate Cookies</p>
+                                <p id="basket__product__value">PHP 750</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">750.00</p>
+                </div>
+            </div>   
+            <hr style="width: 520px;">
+            <div id="basket__total">
+                <p class="bold">Order Total</p>
+                <p class="bold">PHP 1350.00</p>
+            </div>         
+            <hr style="width: 520px;">
+            <div class="button__element">
+                <button class="button secondary-btn" id="nevermind-product-btn">Never mind</button>
+                <button class="button primary-btn" id="save-product-btn">Save customer</button>
+            </div>
+        </div>
+    </section>
+
+<script src="nav.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+/* main products page css */
+.body__container {
+    width: 100%;
+    height: 100%;
+}
+
+.body__wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+}
+
+.header__elements {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2.5rem 5rem;
+}
+
+#order__add__button { color: var(--white); }
+
+.order__table {
+    margin: 2.5rem 5rem;
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* add food css */
+.input__elements {
+    margin: 0 5rem;
+}
+
+.food__header { 
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    padding: 0;
+}
+
+.food__header:hover { 
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    color: #374151 !important;
+    padding: 0;
+}
+
+.input__title {
+    color: #374151;
+    font-weight: 500;
+}
+
+.product__info {
+    margin: 0rem 5rem;
+}
+
+.product__details {
+    max-width: 50%;
+}
