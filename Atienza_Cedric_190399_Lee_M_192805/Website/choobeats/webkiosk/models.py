@@ -11,7 +11,7 @@ class Customer(models.Model):
         return f'{self.id}: {self.firstname} {self.lastname}, {self.address} {self.city}, {self.mobilenumber}'
 
 class Food(models.Model):
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=40)
     description = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6, decimal_places=2)
 
@@ -33,4 +33,4 @@ class Order(models.Model):
         return f'{self.id}: {self.customer.firstname} {self.customer.lastname}, {self.food.name}, {self.quantity}, {self.paymentmode}, {self.orderdatetime}'
 
     def total_price(self):
-        return self.quantity * self.food.price
+        return self.food.price * self.quantity
