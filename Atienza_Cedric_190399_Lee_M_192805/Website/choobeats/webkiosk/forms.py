@@ -13,7 +13,7 @@ class CreateUserForm(UserCreationForm):
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
-        fields = ['firstname', 'lastname', 'address', 'city']
+        fields = ['firstname', 'lastname', 'city']
         
 class FoodForm(ModelForm):
     class Meta:
