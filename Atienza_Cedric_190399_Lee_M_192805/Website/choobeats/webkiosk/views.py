@@ -33,6 +33,8 @@ def logoutuser(request):
 def dashboard(request):
     return render(request, 'webkiosk/dashboard.html')
 
+# food
+
 # add log in restrictions
 def fooditems(request):
     context = {'fooditems': Food.objects.all()}
@@ -49,4 +51,15 @@ def addfood(request):
         if form.is_valid():
             form.save()
             return redirect('webkiosk:fooditems')
+
+
+# orders
+def orderlist(request):
+    context = {'orders': Order.objects.all()}
+    return render(request, 'webkiosk/order.html', context)
+
+# customers
+def customerlist(request):
+    context = {'customerlist': Customer.objects.all()}
+    return render(request, 'webkiosk/customers.html', context)
 
