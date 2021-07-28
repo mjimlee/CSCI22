@@ -26,10 +26,14 @@ urlpatterns = [
     #food
     path('fooditems/', views.fooditems, name='food-items'),
     path('food/add/', views.addfood, name='add-food'),
+
     #orders
     path('orders/', views.orderlist, name= 'order-list'),
+    path('orders/add/', views.addorder, name= 'add-order'),
 
     #customers
     path('customer/', views.customerlist, name= 'customer-list'),
+    path('customer/add/', views.addcustomer, name= 'add-customer'),
+
 
 ]
