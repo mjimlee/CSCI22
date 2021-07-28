@@ -16,7 +16,7 @@
                         <p><input id="checkbox-item" type="checkbox"></p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-header">Customer Name<img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-down-arrow_WRx44HttsD.svg" alt="Gray Arrow" id="gray-arrow-icon"></p>
+                        <p id="table__cell-header">Customer Name</p>
                     </div>
                     <div class="table__cell">
                         <p id="table__cell-header">Location</p>
@@ -30,18 +30,19 @@
                     <div class="table__cell last__cell"></div>
                 </div>
 
+                {% for customer in customerlist %} 
                 <div class="table__row">
                     <div class="table__cell first__cell">
                         <p><input id="checkbox-item" type="checkbox"></p>
                     </div>
                     <div class="table__cell">
-                        <a href = "samples/viewcustomer1.html"><p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">Arizona Robbins</span></p></a>
+                        <p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">{{ customer.firstname }} {{customer.lastname}}</span></p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-text">Quezon City</p>
+                        <p id="table__cell-text">{{ customer.city }}</p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-text">+63 918 123 4567</p>
+                        <p id="table__cell-text">{{ customer.mobilenumber }}</p>
                     </div>
                     <div class="table__cell">
                         <p id="table__cell-text"></p>
@@ -51,95 +52,8 @@
                         <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;">
                     </div>
                 </div>
-
-                <div class="table__row">
-                    <div class="table__cell first__cell">
-                        <p><input id="checkbox-item" type="checkbox"></p>
-                    </div>
-                    <div class="table__cell">
-                        <a href = "samples/viewcustomer2.html"><p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">Atticus Lincoln</span></p></a>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">Quezon City</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">+63 918 231 6732</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"></p>
-                    </div>
-                    <div class="table__cell last__cell">
-                        <a href = "samples/editcustomer2.html"><img src = "https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon"></a>                        
-                        <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;">
-                    </div>
-                </div>
-
-                <div class="table__row">
-                    <div class="table__cell first__cell">
-                        <p><input id="checkbox-item" type="checkbox"></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">Bailey Grey-Shepherd</span></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">San Juan City</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">+63 917 432 2375</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"></p>
-                    </div>
-                    <div class="table__cell last__cell">
-                        <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon">
-                        <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;">
-                    </div>
-                </div>
-
-                <div class="table__row">
-                    <div class="table__cell first__cell">
-                        <p><input id="checkbox-item" type="checkbox"></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">Sofia Robbin</span></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">Muntinlupa City</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">+63 917 723 4523</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"></p>
-                    </div>
-                    <div class="table__cell last__cell">
-                        <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon">
-                        <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;">
-                    </div>
-                </div>
-
-                <div class="table__row">
-                    <div class="table__cell first__cell">
-                        <p><input id="checkbox-item" type="checkbox"></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">Winston Ndugu</span></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">Pasig City</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">+63 908 012 3245</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"></p>
-                    </div>
-                    <div class="table__cell last__cell">
-                        <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon">
-                        <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;">
-                    </div>
-                </div>
-
+                {% endfor %}
+                
             </div>
         </div>
     </section>

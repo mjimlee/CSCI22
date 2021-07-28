@@ -23,6 +23,7 @@ urlpatterns = [
     #log in page
     path('logout/', views.logoutuser, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
+    
     #food
     path('fooditems/', views.fooditems, name='food-items'),
     path('food/add/', views.addfood, name='add-food'),
