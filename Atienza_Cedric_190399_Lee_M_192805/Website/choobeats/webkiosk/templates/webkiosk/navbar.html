@@ -2,15 +2,14 @@
 
 <nav class="nav__container">
     <div class="items" id="js_items">
-        <li><a href="dashboard.html"><img 
+        <li><a href="{% url 'webkiosk:dashboard' %}"><img 
             src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
             alt="choobEats Logo"
             id="company__logo"></a></li>
-        <li><a href="dashboard.html" class="nav__text">Dashboard</a></li>
-        <li><a href="orders.html" class="nav__text">Orders</a></li>
-        <li><a href="{% url 'webkiosk:fooditems' %}" class="nav__text">Food</a></li>
-        <li><a href="customers.html" class="nav__text">Customers</a></li>
-        <li><a href="revenue.html" class="nav__text">Revenue</a></li>    
+        <li><a href="{% url 'webkiosk:dashboard' %}" class="nav__text">Dashboard</a></li>
+        <li><a href="{% url 'webkiosk:order-list' %}" class="nav__text">Orders</a></li>
+        <li><a href="{% url 'webkiosk:food-items' %}" class="nav__text">Food</a></li>
+        <li><a href="{% url 'webkiosk:customer-list' %}" class="nav__text">Customers</a></li>
     </div>
     <div class="mobile__nav__display__icon">
         <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green-mobile-icon_OSFDvu2q3.svg" 
