@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'webkiosk/base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Products</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/food.css">
-</head>
+{% block pagetitle %}Customers{% endblock %}
 
-<body>
+{% block maincontent %}
 
     <section class="body__container">
         <div class="body__wrapper">
             <div class="header__elements">
                 <h3 class="header bold">My Food Products</h3>
-                <button class="primary-btn"><a href="addfood.html" id="order__add__button">Add Products</a></button>
+                <button class="primary-btn"><a href="{% url 'webkiosk:add-food' %}" id="order__add__button">Add Products</a></button>
             </div>
             <div class="table__box">
                 <div class="table__row table__head">
@@ -153,6 +145,4 @@
     </section>
 
 <script src="nav.js"></script>
-
-</body>
-</html>
+{% endblock %}

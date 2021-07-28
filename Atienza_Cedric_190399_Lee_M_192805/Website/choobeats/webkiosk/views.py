@@ -56,10 +56,22 @@ def addfood(request):
 # orders
 def orderlist(request):
     context = {'orders': Order.objects.all()}
-    return render(request, 'webkiosk/order.html', context)
+    return render(request, 'webkiosk/orders.html', context)
+
+def addorder(request):
+    if request.method == 'GET':
+        form = OrderForm()
+        context = {'form': form}
+        return render(request, 'webkiosk/addorders.html', context)
 
 # customers
 def customerlist(request):
     context = {'customerlist': Customer.objects.all()}
     return render(request, 'webkiosk/customers.html', context)
+
+def addcustomer(request):
+    if request.method == 'GET':
+        form = CustomerForm()
+        context = {'form': form}
+        return render(request, 'webkiosk/addcustomer.html', context)
 
