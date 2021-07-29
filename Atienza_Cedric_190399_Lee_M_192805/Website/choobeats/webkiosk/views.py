@@ -8,20 +8,41 @@ from django.contrib.auth.decorators import login_required
 from .models import Food, Customer, Order
 from .forms import FoodForm, OrderForm, CustomerForm, CreateUserForm
 
-def registernewuser(request):
-    if request.user.is_authenticated:
-        return redirect('webkiosk:index')
-    else:
+def home(request):
+    return render(request, 'webkiosk/index.html')
+
+def registerpage(request):
+    if request.method == 'GET':
         form = CreateUserForm()
-        if request.method == 'POST':
-            form = CreateUserForm(request.POST)
-            if form.is_valid():
-                form.save()
-                user = form.cleaned_data.get('username')
-                messages.success(request, 'Account was created for ' + user)
-                return redirect('webkiosk:login')
-        context = {'form':form}
+        context = {'form': form}
         return render(request, 'webkiosk/register.html', context)
+    elif request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('webkiosk/dashboard.html')
+
+def loginpage(request):
+    if request.method == 'GET':
+        form = FoodForm()
+        context = {'form': form}
+        return render(request, 'webkiosk/signin.html', context)
+
+
+# def registernewuser(request):
+#     if request.user.is_authenticated:
+#         return redirect('webkiosk:index')
+#     else:
+#         form = CreateUserForm()
+#         if request.method == 'POST':
+#             form = CreateUserForm(request.POST)
+#             if form.is_valid():
+#                 form.save()
+#                 user = form.cleaned_data.get('username')
+#                 messages.success(request, 'Account was created for ' + user)
+#                 return redirect('webkiosk:login')
+#         context = {'form':form}
+#         return render(request, 'webkiosk/register.html', context)
 
 # add log in page
 

@@ -1,23 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ChoobEats: Manage your online business with only a few clicks.</title>
+{% extends 'webkiosk/baseindex.html' %}
+{% load static %}
 
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/landing.css">
-    <link rel="stylesheet" href="css/signin.css">
+{% block pagetitle %}ChoobEats: Manage your online business with only a few clicks.{% endblock %}
 
-</head>
-<body class = "gray-bg">
+{% block maincontent %}
 
     <nav class = "hero-nav">
-        <a class = "nav-logo-link" href="index.html"><img class = "nav-logo" src = "assets/logo-green.png"></a>
+        <a class = "nav-logo-link" href = "{% url 'webkiosk:home' %}"> <img class = "nav-logo" src = "{% static 'webkiosk/assets/logo-green.png' %}"></a>
         <div class = "nav-buttons">
             <a href="signin.html" class="button secondary-btn">Log In</a>
-            <a href="register.html" class="button primary-btn">Register</a>
+            <a href="{% url 'webkiosk:register' %}" class="button primary-btn">Register</a>
         </div>
     </nav>
 
