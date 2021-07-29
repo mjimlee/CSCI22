@@ -28,22 +28,6 @@ def loginpage(request):
         context = {'form': form}
         return render(request, 'webkiosk/signin.html', context)
 
-
-# def registernewuser(request):
-#     if request.user.is_authenticated:
-#         return redirect('webkiosk:index')
-#     else:
-#         form = CreateUserForm()
-#         if request.method == 'POST':
-#             form = CreateUserForm(request.POST)
-#             if form.is_valid():
-#                 form.save()
-#                 user = form.cleaned_data.get('username')
-#                 messages.success(request, 'Account was created for ' + user)
-#                 return redirect('webkiosk:login')
-#         context = {'form':form}
-#         return render(request, 'webkiosk/register.html', context)
-
 def loginpage(request):
     if request.user.is_authenticated:
         return redirect('webkiosk:dashboard')
