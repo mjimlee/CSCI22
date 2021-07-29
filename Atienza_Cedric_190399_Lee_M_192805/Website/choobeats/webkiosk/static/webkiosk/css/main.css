@@ -236,6 +236,7 @@ button {
 }
 
 .table__head {
+  display: flex;
   font-size: 10px;
   height: 56px;
   font-weight: 600;

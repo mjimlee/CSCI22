@@ -16,14 +16,45 @@
     <link rel="stylesheet" href="{% static 'webkiosk/css/food.css' %}">
     <link rel="stylesheet" href="{% static 'webkiosk/css/orders.css' %}">
     <link rel="stylesheet" href="{% static 'webkiosk/css/register.css' %}">
-</head>
 
-{% include 'webkiosk/navbar.html' %}
+    <script src="nav.js"></script>
+</head>
 
 <body>
     <main>
-        {% block maincontent %}
+        {% block mainnav %}
+        <nav class="nav__container">
+            <div class="items" id="js_items">
+                <li><a href="{% url 'webkiosk:dashboard' %}"><img 
+                    src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
+                    alt="choobEats Logo"
+                    id="company__logo"></a></li>
+                <li><a href="{% url 'webkiosk:dashboard' %}" class="nav__text">Dashboard</a></li>
+                <li><a href="{% url 'webkiosk:order-list' %}" class="nav__text">Orders</a></li>
+                <li><a href="{% url 'webkiosk:food-items' %}" class="nav__text">Food</a></li>
+                <li><a href="{% url 'webkiosk:customer-list' %}" class="nav__text">Customers</a></li>
+            </div>
+            <div class="mobile__nav__display__icon">
+                <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green-mobile-icon_OSFDvu2q3.svg" 
+                alt="Mobile Icon"
+                id="js_mobile_icon">
+            </div>
+            <div class="user__info" id="js_user_info">
+                <div class="user__items">
+                    <img src="assets/avatar.png" alt="User DP">
+                    <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/black-down-arrow-icon_EuPaPjaYH2.svg" alt="Arrow Icon" id="black-arrow-icon">
+                </div>
+            </div>
+        </nav>
+            <div class="user__items__text" id="js_user_items_popup">
+                <a href="index.html">Log Out</a>
+            </div>
         {% endblock %}
+
+        <section class="body__container">
+            <div class="body__wrapper">
+            {% block maincontent %}
+            {% endblock %}
     </main>
 </body>
 </html>
