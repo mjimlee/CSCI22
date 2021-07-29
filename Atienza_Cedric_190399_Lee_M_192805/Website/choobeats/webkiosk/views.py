@@ -51,7 +51,7 @@ def logoutuser(request):
 def dashboard(request):
     return render(request, 'webkiosk/dashboard.html')
 
-# food
+# food functions
 # @login_required(login_url='webkiosk:login')
 def fooditems(request):
     context = {'fooditems': Food.objects.all()}
@@ -89,7 +89,7 @@ def editfood(request, pk):
     return render(request, 'webkiosk/food.html', context)
 
 
-# orders
+# order functions
 def orderlist(request):
     context = {'orders': Order.objects.all()}
     return render(request, 'webkiosk/orders.html', context)
@@ -120,7 +120,7 @@ def editorder(request, pk):
     context = {'form':form}
     return render(request, 'webkiosk/order.html', context)
 
-# customers
+# customer functions
 def customerlist(request):
     context = {'customerlist': Customer.objects.all()}
     return render(request, 'webkiosk/customers.html', context)
