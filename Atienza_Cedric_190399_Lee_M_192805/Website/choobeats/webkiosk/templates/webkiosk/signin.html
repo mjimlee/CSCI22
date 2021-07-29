@@ -8,7 +8,7 @@
     <nav class = "hero-nav">
         <a class = "nav-logo-link" href = "{% url 'webkiosk:home' %}"> <img class = "nav-logo" src = "{% static 'webkiosk/assets/logo-green.png' %}"></a>
         <div class = "nav-buttons">
-            <a href="signin.html" class="button secondary-btn">Log In</a>
+            <a href="{% url 'webkiosk:login' %}" class="button secondary-btn">Log In</a>
             <a href="{% url 'webkiosk:register' %}" class="button primary-btn">Register</a>
         </div>
     </nav>
