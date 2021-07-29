@@ -9,11 +9,22 @@
     <button class="primary-btn"><a href="{% url 'webkiosk:add-food' %}" id="order__add__button">Add Products</a></button>
 </div>
 
+
 <div class="table__box">
     <div class="table__row table__head">
         <p class="table__cell" id="table__cell-header">Food Product <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-down-arrow_WRx44HttsD.svg" alt="Gray Arrow" id="gray-arrow-icon"></p>
         <p class="table__cell" id="table__cell-header">Price</p>
     </div>
+    {% for food in fooditems %}
+    <div class="table__row">
+        <p class="table__cell" id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">{{ food.name }}</span></p>
+        <p class="table__cell" id="table__cell-text">PHP {{ food.price }}</p>
+        <div class="table__icons">
+            <p class="table__cell" id="table__cell-text"><a href = "{% url 'webkiosk:food-edit' food.id %}"><img src = "https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-edit-icon_MlDsn1021P.svg" alt="Edit Icon"></a></p>
+            <p class="table__cell" id="table__cell-text"><a href = "{% url 'webkiosk:food-delete' food.id %}"><img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/red-delete-icon_2JCjzSekD.svg" alt="Trash Icon" style="margin: 0 0 0 24px;"></a></p>
+        </div>
+    </div>
+    {% endfor %}
     <div class="table__row">
         <p class="table__cell" id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">Chocolate Chip Cookies</span></p>
         <p class="table__cell" id="table__cell-text">PHP 650.00</p>
