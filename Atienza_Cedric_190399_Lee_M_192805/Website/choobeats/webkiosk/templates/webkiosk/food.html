@@ -1,7 +1,7 @@
 {% extends 'webkiosk/base.html' %}
 {% load static %}
 
-{% block pagetitle %}Customers{% endblock %}
+{% block pagetitle %}Products{% endblock %}
 
 {% block maincontent %}
 <div class="header__elements">
@@ -11,12 +11,12 @@
 
 
 <div class="table__box">
-    <div class="table__row table__head">
+    <div class="table__row table__head food">
         <p class="table__cell" id="table__cell-header">Food Product <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-down-arrow_WRx44HttsD.svg" alt="Gray Arrow" id="gray-arrow-icon"></p>
         <p class="table__cell" id="table__cell-header">Price</p>
     </div>
     {% for food in fooditems %}
-    <div class="table__row">
+    <div class="table__row food">
         <p class="table__cell" id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">{{ food.name }}</span></p>
         <p class="table__cell" id="table__cell-text">PHP {{ food.price }}</p>
         <div class="table__icons">
@@ -25,7 +25,7 @@
         </div>
     </div>
     {% endfor %}
-    <div class="table__row">
+    <div class="table__row food">
         <p class="table__cell" id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">Chocolate Chip Cookies</span></p>
         <p class="table__cell" id="table__cell-text">PHP 650.00</p>
         <div class="table__icons">

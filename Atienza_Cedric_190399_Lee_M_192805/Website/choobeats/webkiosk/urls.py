@@ -19,8 +19,11 @@ from django.http import HttpResponse
 
 app_name = 'webkiosk'
 urlpatterns = [
-    path('register/', views.registernewuser, name='register'),
+    path('register/', views.registerpage, name='register'),
     path('', views.loginpage, name='login'),
+    path('index/', views.home, name = 'home'),
+
+    #log in page missing
     path('logout/', views.logoutuser, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     

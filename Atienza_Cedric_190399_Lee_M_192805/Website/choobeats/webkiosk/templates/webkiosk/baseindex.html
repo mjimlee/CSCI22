@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block pagetitle %}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'webkiosk/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/landing.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/signin.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/customers.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/food.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/orders.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/register.css' %}">
+</head>
+
+<body>
+    <main>
+        {% block maincontent %}
+        {% endblock %}
+    </main>
+</body>
