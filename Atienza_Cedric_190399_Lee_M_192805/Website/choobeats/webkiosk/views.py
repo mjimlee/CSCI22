@@ -77,6 +77,18 @@ def addfood(request):
     
     return render(request, 'webkiosk/addfood.html', {'message': message})
 
+def fooddetails(request, pk):
+    context = Food.objects.filter(pk=pk)
+    return render(request, 'webkiosk/detailsfood.html', {'fooddetails':context})
+
+def deletepagefood(request,pk):
+    Food.objects.filter(pk=pk)
+    return render(request, 'webkiosk/deletefood.html', {'pk':pk})
+
+def deletefood (request, pk):
+    Food.objects.filter(pk=pk).delete()
+    return redirect('webkiosk:food-items')
+
 # def editfood(request):
 #     if request.method == 'POST':
 #         form = FoodForm(request.POST)
@@ -93,9 +105,6 @@ def addfood(request):
 #             return redirect('fooditems')
     
 #     return render(request, 'webkiosk/addfood.html')
-
-
-
 
 
 # orders
@@ -150,6 +159,3 @@ def addcustomer(request):
     
     return render(request, 'webkiosk/addcustomer.html', {'message': message})
 
-def delete (request):
-    if request.method == 'GET':
-        return render(request, 'webkiosk/delete.html')
