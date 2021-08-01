@@ -42,7 +42,11 @@ urlpatterns = [
     path('customer/add/', views.addcustomer, name= 'add-customer'),
 
     path('delete/food/<int:pk>/', views.deletepagefood, name = 'delete-food'),
-    path('delete/food/<int:pk>/confirm/', views.deletefood, name = 'delete-food-confirm')
+    path('delete/food/<int:pk>/confirm/', views.deletefood, name = 'delete-food-confirm'),
+
+    path('delete/customer/<int:pk>/', views.deletepagecustomer, name = 'delete-customer'),
+    path('delete/customer/<int:pk>/confirm/', views.deletecustomer, name = 'delete-customer-confirm'),
+
 
 
 ]

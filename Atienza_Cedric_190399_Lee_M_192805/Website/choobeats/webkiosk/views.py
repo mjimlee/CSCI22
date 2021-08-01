@@ -159,3 +159,11 @@ def addcustomer(request):
     
     return render(request, 'webkiosk/addcustomer.html', {'message': message})
 
+
+def deletepagecustomer(request,pk):
+    Customer.objects.filter(pk=pk)
+    return render(request, 'webkiosk/deletecustomer.html', {'pk':pk})
+
+def deletecustomer (request, pk):
+    Customer.objects.filter(pk=pk).delete()
+    return redirect('webkiosk:customer-list')
