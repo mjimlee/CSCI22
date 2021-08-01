@@ -93,7 +93,7 @@
             <h3 class = "text-xl font-semibold text-centered">Get started for FREE.</h3>
             <p class = "text-base text-gray-500 margin-8 text-centered">Set up your account in under 30 minutes, with absolutely no setup fees.</p>
             <div class = "cta-button-grid margin-24">
-                <a href="signin.html" class="button secondary-btn">Log In</a>
+                <a href="{% url 'webkiosk:login' %}" class="button secondary-btn">Log In</a>
                 <a href="{% url 'webkiosk:register' %}" class="button primary-btn">Register</a>
             </div>
             <img class = "margin-40" src = "{% static 'webkiosk/assets/mockups/mockup-cta.png' %}">

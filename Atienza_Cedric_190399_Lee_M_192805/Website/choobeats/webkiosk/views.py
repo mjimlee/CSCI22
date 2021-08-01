@@ -96,3 +96,6 @@ def addcustomer(request):
         context = {'form': form}
         return render(request, 'webkiosk/addcustomer.html', context)
 
+def delete (request):
+    if request.method == 'GET':
+        return render(request, 'webkiosk/delete.html')
