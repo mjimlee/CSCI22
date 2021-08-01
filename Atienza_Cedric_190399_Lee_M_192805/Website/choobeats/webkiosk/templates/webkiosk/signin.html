@@ -18,10 +18,13 @@
             <main class = "form-card">
                 <h1 class = "text-xl font-semibold">Welcome back!</h1>
                 <p class = "text-base font-normal margin-12 text-gray-500">Sign into your ChoobEats account.</p>
+                <p class = "text-base margin-12 text-red-500">{{ message }}</p>
                 <div class = "form-grid margin-24">
-                    <input type="text" class="input__field__short" placeholder="Email">
-                    <input type="text" class="input__field__short" placeholder="Password">
-                    <a href="dashboard.html" class="button primary-btn full-button-width margin-12">Create an account</a>
+                    <form method = 'POST' action = "{% url 'webkiosk:login' %}">{% csrf_token %}
+                        <input type="text" name = "email" class="input__field__short" placeholder="Email">
+                        <input type="password" name = "password" class="input__field__short" placeholder="Password">
+                        <input type = "submit" name = "submit" value = "Log In" class="form-btn primary-btn full-button-width margin-12">
+                    </form>
                 </div>
             </main>
         </div>
@@ -56,6 +59,4 @@
 
         </div>
     </footer>
-
-</body>
-</html>
+{% endblock %}

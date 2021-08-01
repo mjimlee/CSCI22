@@ -5,8 +5,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
-from .models import Food, Customer, Order
-from .forms import FoodForm, OrderForm, CustomerForm, CreateUserForm
+from .models import *
+from .forms import FoodForm, OrderForm, CustomerForm, CreateUserForm, LoginForm
 
 def home(request):
     return render(request, 'webkiosk/index.html')
@@ -23,55 +23,79 @@ def registerpage(request):
             return redirect('webkiosk/dashboard.html')
 
 def loginpage(request):
-    if request.method == 'GET':
-        form = FoodForm()
-        context = {'form': form}
-        return render(request, 'webkiosk/signin.html', context)
+    message = ""
 
+    if request.method == 'POST':
+        em = request.POST.get('email')
+        pw = request.POST.get('password')
 
-# def registernewuser(request):
-#     if request.user.is_authenticated:
-#         return redirect('webkiosk:index')
-#     else:
-#         form = CreateUserForm()
-#         if request.method == 'POST':
-#             form = CreateUserForm(request.POST)
-#             if form.is_valid():
-#                 form.save()
-#                 user = form.cleaned_data.get('username')
-#                 messages.success(request, 'Account was created for ' + user)
-#                 return redirect('webkiosk:login')
-#         context = {'form':form}
-#         return render(request, 'webkiosk/register.html', context)
+        if Account.objects.filter(email=em, password=pw).exists():
+            message = ""
+            return render(request, 'webkiosk/dashboard.html')
+        
+        else:
+            message = "Your username or password is incorrect. Please try again."
 
-# add log in page
+    return render(request, 'webkiosk/signin.html', {'message': message})
+
 
 def logoutuser(request):
     logout(request)
     return redirect('webkiosk:index')
 
 # add log in restrictions
+
+
+
+@login_required(login_url='webkiosk:login')
+
 def dashboard(request):
     return render(request, 'webkiosk/dashboard.html')
 
 # food
 
-# add log in restrictions
 def fooditems(request):
-    context = {'fooditems': Food.objects.all()}
-    return render(request, 'webkiosk/food.html', context)
+    context = Food.objects.all()
+    return render(request, 'webkiosk/food.html', {'fooditems':context})
 
 # add log in restrictions
 def addfood(request):
-    if request.method == 'GET':
-        form = FoodForm()
-        context = {'form': form}
-        return render(request, 'webkiosk/addfood.html', context)
-    elif request.method == 'POST':
+    message = ""
+    if request.method == 'POST':
         form = FoodForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('webkiosk:fooditems')
+
+        name = request.POST.get('name')
+        desc = request.POST.get('description')
+        price = request.POST.get('price')
+
+        if Food.objects.filter(name=name, description=desc,price=price).exists():
+            message = "You already have this exact item in your products list! Add a new one."
+        
+        else:
+            Food.objects.create(name=name, description=desc,price=price)
+            return redirect('webkiosk:food-items')
+    
+    return render(request, 'webkiosk/addfood.html', {'message': message})
+
+# def editfood(request):
+#     if request.method == 'POST':
+#         form = FoodForm(request.POST)
+
+#         name = request.POST.get('name')
+#         desc = request.POST.get('description')
+#         price = request.POST.get('price')
+
+#         if Food.objects.filter(name=name, description=desc,price=price).exists():
+#             message = "You already have this exact item in your products list! Add a new one."
+        
+#         else:
+#             Food.objects.create(name=name, description=desc,price=price)
+#             return redirect('fooditems')
+    
+#     return render(request, 'webkiosk/addfood.html')
+
+
+
 
 
 # orders
@@ -80,21 +104,51 @@ def orderlist(request):
     return render(request, 'webkiosk/orders.html', context)
 
 def addorder(request):
-    if request.method == 'GET':
-        form = OrderForm()
-        context = {'form': form}
-        return render(request, 'webkiosk/addorders.html', context)
+    # message = ""
+    # if request.method == 'POST':
+    #     form = FoodForm(request.POST)
+
+    #     cust = request.POST.get('customer')
+    #     food = request.POST.get('food')
+    #     quant = request.POST.get('quantity')
+    #     pm = request.POST.get('paymode')
+
+    #     if Customer.objects.filter(paymentmode=pm, customer=cust,food=food, quantity = quant).exists():
+    #         message = "You already have this exact item in your products list! Add a new one."
+        
+    #     else:
+    #         Food.objects.create(name=name, description=desc,price=price)
+    #         return redirect('webkiosk:food-items')
+    return render(request, 'webkiosk/addfood.html')
 
 # customers
+        # fields = ['firstname', 'lastname', email 'address', 'city'] province
+
 def customerlist(request):
-    context = {'customerlist': Customer.objects.all()}
-    return render(request, 'webkiosk/customers.html', context)
+    context = Customer.objects.all()
+    return render(request, 'webkiosk/customers.html', {'customerlist':context})
 
 def addcustomer(request):
-    if request.method == 'GET':
-        form = CustomerForm()
-        context = {'form': form}
-        return render(request, 'webkiosk/addcustomer.html', context)
+    message = ""
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+
+        fname = request.POST.get('fname')
+        lname = request.POST.get('lname')
+        email = request.POST.get('email')
+        num = request.POST.get('num')
+        ad = request.POST.get('ad')
+        city = request.POST.get('city')
+        prov = request.POST.get('prov')
+
+        if Customer.objects.filter(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov).exists():
+            message = "You already have this exact customer in your customer list! Add a new one."
+        
+        else:
+            Customer.objects.create(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov)
+            return redirect('webkiosk:customer-list')
+    
+    return render(request, 'webkiosk/addcustomer.html', {'message': message})
 
 def delete (request):
     if request.method == 'GET':
