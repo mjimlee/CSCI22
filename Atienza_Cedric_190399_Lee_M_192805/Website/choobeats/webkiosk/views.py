@@ -92,7 +92,6 @@ def editfood(request, pk):
     context = {'form': form}
     return render(request, 'webkiosk/food.html', context)
 
-
 # order functions
 def orderlist(request):
     context = {'orders': Order.objects.all()}
