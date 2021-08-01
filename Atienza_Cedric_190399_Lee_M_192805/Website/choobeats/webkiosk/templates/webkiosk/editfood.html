@@ -4,7 +4,7 @@
 {% block pagetitle %}Add a product{% endblock %}
 
 {% block maincontent %}
-    {% for food in editfoodpage %}
+    {% for food in editfood %}
         <section class="body__container">
             <div class="body__wrapper">
                 <div class="header__elements">
@@ -14,7 +14,7 @@
                     </a>
                 </div>
                 <p class = "text-base margin-12 text-red-500">{{message}}</p>
-                <div class="input__elements">
+                <div class="input__elements margin-24">
                     <form method = 'POST' action = "{% url 'webkiosk:edit-food' pk=food.pk %}">{% csrf_token %}
                         <p class="input__title">Product Name</p>
                         <input type="text" name = "name" class="input__field__short" value="{{food.name}}">

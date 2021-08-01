@@ -81,7 +81,7 @@ def fooddetails(request, pk):
     context = Food.objects.filter(pk=pk)
     return render(request, 'webkiosk/detailsfood.html', {'fooddetails':context})
 
-def editfoodpage(request, pk):
+def editfood(request, pk):
     context = Food.objects.filter(pk=pk)
     if request.method == 'POST':
         form = FoodForm(request.POST)
@@ -96,7 +96,7 @@ def editfoodpage(request, pk):
         else:
             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
             return redirect('webkiosk:food-items')
-    return render(request, 'webkiosk/editfood.html', {'editfoodpage':context, 'message':message})
+    return render(request, 'webkiosk/editfood.html', {'editfood':context, 'message':message})
 
 
 def deletepagefood(request,pk):
@@ -180,6 +180,28 @@ def addcustomer(request):
 def customerdetails(request, pk):
     context = Customer.objects.filter(pk=pk)
     return render(request, 'webkiosk/detailscustomer.html', {'customerdetails':context})
+
+def editcustomer(request, pk):
+    context = Customer.objects.filter(pk=pk)
+    message=""
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+
+        fname = request.POST.get('fname')
+        lname = request.POST.get('lname')
+        email = request.POST.get('email')
+        num = request.POST.get('num')
+        ad = request.POST.get('ad')
+        city = request.POST.get('city')
+        prov = request.POST.get('prov')
+
+        if Customer.objects.filter(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov).exists():
+            message = "You didn't make any update!"
+        
+        else:
+            Customer.objects.filter(pk=pk).update(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov)
+            return redirect('webkiosk:customer-list')
+    return render(request, 'webkiosk/editcustomer.html', {'editcustomer':context, 'message':message})
 
 def deletepagecustomer(request,pk):
     Customer.objects.filter(pk=pk)
