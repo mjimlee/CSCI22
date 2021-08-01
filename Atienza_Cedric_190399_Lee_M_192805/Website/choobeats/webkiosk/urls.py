@@ -23,6 +23,7 @@ urlpatterns = [
     path('index/', views.home, name = 'home'),
 
     path('register/', views.registerpage, name='register'),
+    path('register/', views.loginpage, name='login'),
     #log in page missing
     path('logout/', views.logoutuser, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
@@ -38,6 +39,8 @@ urlpatterns = [
     #customers
     path('customer/', views.customerlist, name= 'customer-list'),
     path('customer/add/', views.addcustomer, name= 'add-customer'),
+
+    path('delete/', views.delete, name = 'delete')
 
 
 ]

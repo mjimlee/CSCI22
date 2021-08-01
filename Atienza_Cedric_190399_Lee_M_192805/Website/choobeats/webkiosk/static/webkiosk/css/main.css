@@ -391,6 +391,10 @@ hr {
   margin: 2.5rem 0 0 18rem;
 }
 
+.delete__container {
+  
+}
+
 @media screen and (max-width: 767px) {
 .header {
   color: #374151;

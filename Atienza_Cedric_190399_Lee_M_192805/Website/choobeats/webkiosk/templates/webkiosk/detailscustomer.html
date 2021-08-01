@@ -1,0 +1,82 @@
+{% extends 'webkiosk/base.html' %}
+{% load static %}
+
+{% block pagetitle %}Food Page{% endblock %}
+
+{% block maincontent %}
+    <section class="body__container">
+        <div class="body__wrapper">
+            <div class="header__elements">
+                <a href="../customers.html" class="order__header bold">
+                    <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-left-arrow_Z1zQd3vTE.svg" alt="Gray Arrow">
+                    Arizona Robbins
+                </a>
+                <h3 class="header bold"></h3>
+                <a href="editorder2.html" id="order__add__button"><button class="secondary-btn">Edit Customer</button></a>
+            </div>
+            <section class="order__customer__details">
+                <div class="customer__details">
+                    <h5 class="body bold">Customer Details</h5>
+                    <p>
+                        arobbins@gmail.com
+                        <br>
+                        +63 918 123 4567
+                    </p>
+                </div>
+                <div class="customer__shipping__address">
+                    <h5 class="body bold">Shipping Address</h5>
+                    <p>123 Grey Street<br>Quezon City, Metro Manila</p>
+                </div>
+                <div class="delivery__details">
+                    <h5 class="body bold"></h5>
+                    <p></p>
+                </div>
+            </section>
+
+            <div class="table__box">
+                <div class="table__row table__head orders">
+                    <div class="table__cell first__cell">
+                        <p><input id="checkbox-item" type="checkbox"></p>
+                    </div>
+                    <div class="table__cell">
+                        <p id="table__cell-header">Order Date <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-down-arrow_WRx44HttsD.svg" alt="Gray Arrow" id="gray-arrow-icon"></p>
+                    </div>
+                    <div class="table__cell">
+                        <p id="table__cell-header">Order #</p>
+                    </div>
+                    <div class="table__cell">
+                        <p id="table__cell-header">Customer Name</p>
+                    </div>
+                    <div class="table__cell">
+                        <p id="table__cell-header">Total Amount</p>
+                    </div>
+                    <div class="table__cell last__cell"></div>
+                </div>
+
+                <div class="table__row orders">
+                    <div class="table__cell first__cell">
+                        <p><input id="checkbox-item" type="checkbox"></p>
+                    </div>
+                    <div class="table__cell">
+                        <p id="table__cell-text">June 13, 2021</p>
+                    </div>
+                    <div class="table__cell">
+                        <p id="table__cell-text"><a href = "samples/order1.html"><span style="color:#10B981; text-decoration: underline;">CKG001</span></a></p>
+                    </div>
+                    <div class="table__cell">
+                        <p id="table__cell-text">Atticus Lincoln</p>
+                    </div>
+                    <div class="table__cell">
+                        <p id="table__cell-text">PHP 1250.00</p>
+                    </div>
+                    <div class="table__cell last__cell">
+                        <img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon">
+                        <img src="{% static 'webkiosk/assets/icons/u_trash-alt.svg' %}" alt="Trash Icon" style="margin: 0 0 0 24px;">
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+{ % endblock % }
