@@ -10,10 +10,15 @@ class CreateUserForm(UserCreationForm):
         model = User
         fields = ['email', 'password1', 'password2']
 
+class LoginForm(ModelForm):
+    class Meta:
+        model = User
+        fields = ['email', 'password']
+
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
-        fields = ['firstname', 'lastname', 'address', 'city']
+        fields = ['firstname', 'lastname', 'email', 'number', 'address', 'city', 'province']
         
 class FoodForm(ModelForm):
     class Meta:

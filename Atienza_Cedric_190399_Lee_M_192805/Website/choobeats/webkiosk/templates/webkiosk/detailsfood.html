@@ -4,23 +4,25 @@
 {% block pagetitle %}Food Page{% endblock %}
 
 {% block maincontent %}
-    <section class="body__container">
-        <div class="body__wrapper">
-            <div class="header__elements">
-                <a href="../food.html" class="food__header bold">
-                    <img src="{% static 'webkiosk/assets/icons/fi_chevron-left.svg' %}" alt="Gray Arrow">
-                    Chocolate Chip Cookies
-                </a>
-                <h3 class="header bold"></h3>
-                <a href="editorder1.html" id="order__add__button"><button class="secondary-btn">Edit Product</button></a>
+    {% for food in fooddetails %}
+        <section class="body__container">
+            <div class="body__wrapper">
+                <div class="header__elements">
+                    <a href="{% url 'webkiosk:food-items' %}" class="food__header bold">
+                        <img src="{% static 'webkiosk/assets/icons/fi_chevron-left.svg' %}" alt="Gray Arrow">
+                        {{food.name}}
+                    </a>
+                    <h3 class="header bold"></h3>
+                    <a href="editorder1.html" id="order__add__button"><button class="secondary-btn">Edit Product</button></a>
+                </div>
+                <section class="product__info">
+                    <p>PHP {{food.price}}</p>
+                    <br>
+                    <p class="product__details">
+                        {{food.description}}
+                    </p>
+                </section>
             </div>
-            <section class="product__info">
-                <p>PHP 650</p>
-                <br>
-                <p class="product__details">
-                    A chocolate chip cookie is a drop cookie that features chocolate chips or chocolate morsels as its distinguishing ingredient.
-                </p>
-            </section>
-        </div>
-    </section>
-{ % endblock % }
+        </section>
+    {% endfor %}
+{% endblock %}

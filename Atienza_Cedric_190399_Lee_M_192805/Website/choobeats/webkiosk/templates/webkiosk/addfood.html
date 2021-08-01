@@ -12,20 +12,19 @@
                     Add a product
                 </a>
             </div>
+            <p class = "text-base margin-12 text-red-500">{{ message }}</p>
             <div class="input__elements">
-                <p class="input__title">Product Name</p>
-                <input class="input__field__short" type="text" placeholder="Name">
-                <p class="input__title">Price</p>
-                <input class="input__field__short" type="text" placeholder="PHP">
-                <p class="input__title">Product Description</p>
-                <form>
-                    <textarea placeholder="Type here..."></textarea>
+                <form method = 'POST' action = "{% url 'webkiosk:add-food' %}">{% csrf_token %}
+                    <p class="input__title">Product Name</p>
+                    <input type="text" name = "name" class="input__field__short" placeholder="Name">
+                    <input type="text" name = "price" class="input__field__short" placeholder="Price (PHP)">
+                    <p class="input__title">Product Description</p>
+                    <textarea name = "description" placeholder="Type here..."></textarea>
+                    <div class="button__element">
+                        <a href = "{% url 'webkiosk:food-items' %}"><button class="button secondary-btn">Never mind</button></a>
+                        <input type = "submit" name = "submit" value = "Save Product" class="form-btn primary-btn full-button-width margin-12">
+                    </div>
                 </form>
-            </div>
-            <hr style="width: 520px;">
-            <div class="button__element">
-                <button class="button secondary-btn" id="nevermind-product-btn">Never mind</button>
-                <button class="button primary-btn" id="save-product-btn">Save product</button>
             </div>
         </div>
     </section>
