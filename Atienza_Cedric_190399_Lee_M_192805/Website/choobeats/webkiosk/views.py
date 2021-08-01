@@ -159,6 +159,9 @@ def addcustomer(request):
     
     return render(request, 'webkiosk/addcustomer.html', {'message': message})
 
+def customerdetails(request, pk):
+    context = Customer.objects.filter(pk=pk)
+    return render(request, 'webkiosk/detailscustomer.html', {'customerdetails':context})
 
 def deletepagecustomer(request,pk):
     Customer.objects.filter(pk=pk)

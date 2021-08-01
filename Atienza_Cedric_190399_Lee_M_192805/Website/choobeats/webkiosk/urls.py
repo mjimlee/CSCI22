@@ -33,6 +33,9 @@ urlpatterns = [
     path('food/add/', views.addfood, name='add-food'),
     path('food/<int:pk>/', views.fooddetails, name = 'food-details'),
 
+    path('delete/food/<int:pk>/', views.deletepagefood, name = 'delete-food'),
+    path('delete/food/<int:pk>/confirm/', views.deletefood, name = 'delete-food-confirm'),
+
     #orders
     path('orders/', views.orderlist, name= 'order-list'),
     path('orders/add/', views.addorder, name= 'add-order'),
@@ -40,9 +43,7 @@ urlpatterns = [
     #customers
     path('customer/', views.customerlist, name= 'customer-list'),
     path('customer/add/', views.addcustomer, name= 'add-customer'),
-
-    path('delete/food/<int:pk>/', views.deletepagefood, name = 'delete-food'),
-    path('delete/food/<int:pk>/confirm/', views.deletefood, name = 'delete-food-confirm'),
+    path('customer/<int:pk>/', views.customerdetails, name = 'customer-details'),
 
     path('delete/customer/<int:pk>/', views.deletepagecustomer, name = 'delete-customer'),
     path('delete/customer/<int:pk>/confirm/', views.deletecustomer, name = 'delete-customer-confirm'),

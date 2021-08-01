@@ -33,7 +33,7 @@
                         <p><input id="checkbox-item" type="checkbox"></p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">{{customer.firstname}} {{customer.lastname}}</span></p>
+                        <a href = "{% url 'webkiosk:customer-details' pk=customer.pk %}"><p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">{{customer.firstname}} {{customer.lastname}}</span></p></a>
                     </div>
                     <div class="table__cell">
                         <p id="table__cell-text">{{customer.city}}</p>
