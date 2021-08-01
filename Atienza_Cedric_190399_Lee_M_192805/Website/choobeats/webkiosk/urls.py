@@ -32,9 +32,10 @@ urlpatterns = [
     path('fooditems/', views.fooditems, name='food-items'),
     path('food/add/', views.addfood, name='add-food'),
     path('food/<int:pk>/', views.fooddetails, name = 'food-details'),
+    path('food/edit/<int:pk>/', views.editfoodpage, name = 'edit-food'),
 
-    path('delete/food/<int:pk>/', views.deletepagefood, name = 'delete-food'),
-    path('delete/food/<int:pk>/confirm/', views.deletefood, name = 'delete-food-confirm'),
+    path('food/delete/<int:pk>/', views.deletepagefood, name = 'delete-food'),
+    path('food/delete/<int:pk>/confirm/', views.deletefood, name = 'delete-food-confirm'),
 
     #orders
     path('orders/', views.orderlist, name= 'order-list'),
@@ -45,8 +46,8 @@ urlpatterns = [
     path('customer/add/', views.addcustomer, name= 'add-customer'),
     path('customer/<int:pk>/', views.customerdetails, name = 'customer-details'),
 
-    path('delete/customer/<int:pk>/', views.deletepagecustomer, name = 'delete-customer'),
-    path('delete/customer/<int:pk>/confirm/', views.deletecustomer, name = 'delete-customer-confirm'),
+    path('customer/delete/<int:pk>/', views.deletepagecustomer, name = 'delete-customer'),
+    path('customer/delete/<int:pk>/confirm/', views.deletecustomer, name = 'delete-customer-confirm'),
 
 
 

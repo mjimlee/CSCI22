@@ -81,6 +81,24 @@ def fooddetails(request, pk):
     context = Food.objects.filter(pk=pk)
     return render(request, 'webkiosk/detailsfood.html', {'fooddetails':context})
 
+def editfoodpage(request, pk):
+    context = Food.objects.filter(pk=pk)
+    if request.method == 'POST':
+        form = FoodForm(request.POST)
+
+        name = request.POST.get('name')
+        desc = request.POST.get('description')
+        price = request.POST.get('price')
+
+        if Food.objects.filter(name=name, description=desc,price=price).exists():
+            message = "You did not make any update!"
+        
+        else:
+            Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
+            return redirect('webkiosk:food-items')
+    return render(request, 'webkiosk/editfood.html', {'editfoodpage':context, 'message':message})
+
+
 def deletepagefood(request,pk):
     Food.objects.filter(pk=pk)
     return render(request, 'webkiosk/deletefood.html', {'pk':pk})
