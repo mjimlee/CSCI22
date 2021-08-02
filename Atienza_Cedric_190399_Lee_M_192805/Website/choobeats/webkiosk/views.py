@@ -25,20 +25,28 @@ def registerpage(request):
 def loginpage(request):
 
     if request.method == 'POST':
-        em = request.POST.get('email')
-        pw = request.POST.get('password')
+        un = request.POST['username']
+        pw = request.POST['password']
 
-        if Account.objects.filter(email=em, password=pw).exists():
-            return render(request, 'webkiosk/dashboard.html')
-        
+        user = authenticate(request, username=un, password=pw)
+
+        if user is not None:
+            login(request, user)
+            return redirect('webkiosk:dashboard')
         else:
             messages.error(request, "Your username or password is incorrect. Please try again.")
 
-    return render(request, 'webkiosk/signin.html')
+        # if Account.objects.filter(email=em, password=pw).exists():
+        #     return render(request, 'webkiosk/dashboard.html')
+        
+        # else:
+        #     messages.error(request, "Your username or password is incorrect. Please try again.")
+        
+    return render(request, 'webkiosk/login.html')
 
 def logoutuser(request):
     logout(request)
-    return redirect('webkiosk:login')
+    return redirect('webkiosk:home')
 
 # add log in restrictions
 
