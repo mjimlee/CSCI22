@@ -13,23 +13,26 @@
                 </a>
             </div>
             <div class="input__elements">
-                <p class="input__title">Customer Name</p>
-                <input class="input__field__short" type="text" placeholder="Name">
-                <p class="input__title">Customer Email</p>
-                <input class="input__field__short" type="text" placeholder="Email">
-                <p class="input__title">Customer Mobile Number</p>
-                <input class="input__field__short" type="text" placeholder="Mobile Number">
-                <p class="input__title">Shipping Address</p>
-                <input class="input__field__short" type="text" style="margin: 0.5rem 0 0 0;;"placeholder="Street Address">
-                <div class="custom__input__field">
-                    <input class="input__field__half" type="text" placeholder="City">
-                    <input class="input__field__half" type="text" placeholder="Province">
-                </div>
-            </div>
-            <hr style="width: 520px;">
-            <div class="button__element">
-                <button class="button secondary-btn" id="nevermind-product-btn">Never mind</button>
-                <button class="button primary-btn" id="save-product-btn">Save customer</button>
+                <form method = 'POST' action = "{% url 'webkiosk:add-customer' %}">{% csrf_token %}
+                    <p class="input__title">First Name</p>
+                    <input type="text" name = "fname" class="input__field__short" placeholder="First Name">
+                    <p class="input__title">Last Name</p>
+                    <input type="text" name = "lname" class="input__field__short" placeholder="Last Name">
+                    <p class="input__title">Email</p>
+                    <input type="text" name = "email" class="input__field__short" placeholder="Email">
+                    <p class="input__title">Mobile Number</p>
+                    <input type="number" name = "num" class="input__field__short" placeholder="Mobile Number">
+                    <p class="input__title">Street Address</p>
+                    <input type="text" name = "ad" class="input__field__short" placeholder="Street Address">
+                    <p class="input__title">City</p>
+                    <input type="text" name = "city" class="input__field__short" placeholder="City">
+                    <p class="input__title">Province</p>
+                    <input type="text" name = "prov" class="input__field__short" placeholder="Province">
+                    <div class="button__element">
+                        <a href = "{% url 'webkiosk:customer-list' %}"><button class="button secondary-btn">Never mind</button></a>
+                        <input type = "submit" name = "submit" value = "Save customer" class="form-btn primary-btn full-button-width margin-12">
+                    </div>
+                </form>
             </div>
         </div>
     </section>

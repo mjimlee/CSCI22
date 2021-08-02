@@ -53,6 +53,7 @@ h3 { font-size: 20px; line-height: 32px;}
 .text-gray-400 {color: #9CA3AF}
 .text-gray-500 {color: #6B7280}
 .text-green-500 {color: var(--primary-enabled);}
+.text-red-500 {color: #EF4444}
 
 .margin-8 {margin-top: 8px;}
 .margin-12 {margin-top: 12px;}
@@ -129,6 +130,18 @@ button {
   height: 36px;
   border-radius: 10px;
   border: none;
+}
+
+.form-btn {
+    font-size: 14px;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: 500;
+    line-height: 22px;
+    text-align: center;
+    background-color: transparent;
+    transition: all 0.2s;
+    margin: 0;
 }
 
 .primary-btn {
@@ -389,6 +402,10 @@ hr {
   height: 76px;
   display: flex;
   margin: 2.5rem 0 0 18rem;
+}
+
+.delete__container {
+
 }
 
 @media screen and (max-width: 767px) {

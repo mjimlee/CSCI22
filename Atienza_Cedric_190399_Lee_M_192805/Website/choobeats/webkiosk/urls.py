@@ -19,17 +19,19 @@ from django.http import HttpResponse
 
 app_name = 'webkiosk'
 urlpatterns = [
-    path('register/', views.registerpage, name='register'),
-    path('', views.loginpage, name='login'),
     path('index/', views.home, name = 'home'),
-
-    #log in page missing
+    path('register/', views.registerpage, name='register'),
+    path('login/', views.loginpage, name='login'),
     path('logout/', views.logoutuser, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     
     #food
     path('fooditems/', views.fooditems, name='food-items'),
     path('food/add/', views.addfood, name='add-food'),
+    path('food/<int:pk>/', views.fooddetails, name = 'food-details'),
+    path('food/edit/<int:pk>/', views.editfood, name = 'edit-food'),
+    path('food/delete/<int:pk>/', views.deletepagefood, name = 'delete-food'),
+    path('food/delete/<int:pk>/confirm/', views.deletefood, name = 'delete-food-confirm'),
 
     #orders
     path('orders/', views.orderlist, name= 'order-list'),
@@ -38,6 +40,8 @@ urlpatterns = [
     #customers
     path('customer/', views.customerlist, name= 'customer-list'),
     path('customer/add/', views.addcustomer, name= 'add-customer'),
-
-
+    path('customer/<int:pk>/', views.customerdetails, name = 'customer-details'),
+    path('customer/edit/<int:pk>/', views.editcustomer, name = 'edit-customer'),
+    path('customer/delete/<int:pk>/', views.deletepagecustomer, name = 'delete-customer'),
+    path('customer/delete/<int:pk>/confirm/', views.deletecustomer, name = 'delete-customer-confirm'),
 ]
