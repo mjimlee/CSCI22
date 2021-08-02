@@ -23,20 +23,18 @@ def registerpage(request):
             return redirect('webkiosk/dashboard.html')
 
 def loginpage(request):
-    message = ""
 
     if request.method == 'POST':
         em = request.POST.get('email')
         pw = request.POST.get('password')
 
         if Account.objects.filter(email=em, password=pw).exists():
-            message = ""
             return render(request, 'webkiosk/dashboard.html')
         
         else:
-            message = "Your username or password is incorrect. Please try again."
+            messages.error(request, "Your username or password is incorrect. Please try again.")
 
-    return render(request, 'webkiosk/signin.html', {'message': message})
+    return render(request, 'webkiosk/signin.html')
 
 def logoutuser(request):
     logout(request)
@@ -57,7 +55,6 @@ def fooditems(request):
 
 # @login_required(login_url='webkiosk:login')
 def addfood(request):
-    message = ""
     if request.method == 'POST':
         form = FoodForm(request.POST)
 
@@ -66,13 +63,15 @@ def addfood(request):
         price = request.POST.get('price')
 
         if Food.objects.filter(name=name, description=desc,price=price).exists():
-            message = "You already have this exact item in your products list! Add a new one."
+            messages.error(request, "You already have this exact item in your products list! Add a new one.")
         
         else:
             Food.objects.create(name=name, description=desc,price=price)
+            messages.success(request, 'Successfully added.')
+
             return redirect('webkiosk:food-items')
     
-    return render(request, 'webkiosk/addfood.html', {'message': message})
+    return render(request, 'webkiosk/addfood.html')
 
 def fooddetails(request, pk):
     context = Food.objects.filter(pk=pk)
@@ -88,12 +87,13 @@ def editfood(request, pk):
         price = request.POST.get('price')
 
         if Food.objects.filter(name=name, description=desc,price=price).exists():
-            message = "You did not make any update!"
+            messages.error(request, "You did not make any update!")
         
         else:
             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
+            messages.success(request,"Successfully edited!")
             return redirect('webkiosk:food-items')
-    return render(request, 'webkiosk/editfood.html', {'editfood':context, 'message':message})
+    return render(request, 'webkiosk/editfood.html', {'editfood':context})
 
 
 def deletepagefood(request,pk):
@@ -102,6 +102,7 @@ def deletepagefood(request,pk):
 
 def deletefood (request, pk):
     Food.objects.filter(pk=pk).delete()
+    messages.error(request, 'Item successfully removed.')
     return redirect('webkiosk:food-items')
 
 # @login_required(login_url='webkiosk:login')
@@ -176,7 +177,6 @@ def customerlist(request):
 
 # @login_required(login_url='webkiosk:login')
 def addcustomer(request):
-    message = ""
     if request.method == 'POST':
         form = CustomerForm(request.POST)
 
@@ -189,13 +189,15 @@ def addcustomer(request):
         prov = request.POST.get('prov')
 
         if Customer.objects.filter(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov).exists():
-            message = "You already have this exact customer in your customer list! Add a new one."
+            messages.error(request,"You already have this exact customer in your customer list! Add a new one.")
         
         else:
             Customer.objects.create(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov)
+            messages.success(request,"Successfully added!")
+
             return redirect('webkiosk:customer-list')
     
-    return render(request, 'webkiosk/addcustomer.html', {'message': message})
+    return render(request, 'webkiosk/addcustomer.html')
 
 def customerdetails(request, pk):
     context = Customer.objects.filter(pk=pk)
@@ -203,7 +205,6 @@ def customerdetails(request, pk):
 
 def editcustomer(request, pk):
     context = Customer.objects.filter(pk=pk)
-    message=""
     if request.method == 'POST':
         form = CustomerForm(request.POST)
 
@@ -216,12 +217,15 @@ def editcustomer(request, pk):
         prov = request.POST.get('prov')
 
         if Customer.objects.filter(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov).exists():
-            message = "You didn't make any update!"
+            messages.error(request,"You didn't make any changes!")
+
         
         else:
             Customer.objects.filter(pk=pk).update(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov)
+            messages.success(request,"Successfully updated!")
+
             return redirect('webkiosk:customer-list')
-    return render(request, 'webkiosk/editcustomer.html', {'editcustomer':context, 'message':message})
+    return render(request, 'webkiosk/editcustomer.html', {'editcustomer':context})
 
 def deletepagecustomer(request,pk):
     Customer.objects.filter(pk=pk)
@@ -229,4 +233,6 @@ def deletepagecustomer(request,pk):
 
 def deletecustomer (request, pk):
     Customer.objects.filter(pk=pk).delete()
+    messages.error(request, 'Customer successfully removed.')
+
     return redirect('webkiosk:customer-list')
