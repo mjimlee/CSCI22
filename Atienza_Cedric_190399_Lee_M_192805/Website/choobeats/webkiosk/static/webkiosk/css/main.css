@@ -75,6 +75,10 @@ h3 { font-size: 20px; line-height: 32px;}
   justify-content: center;
 }
 
+.message-text {
+  margin-left: 5rem;
+}
+
 p {
   width: auto;
   font-size: 16px; 
