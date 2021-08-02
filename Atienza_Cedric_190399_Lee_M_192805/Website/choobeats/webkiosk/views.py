@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import FoodForm, OrderForm, CustomerForm, CreateUserForm, LoginForm
 
+
 def home(request):
     return render(request, 'webkiosk/index.html')
 
@@ -34,7 +35,7 @@ def loginpage(request):
             login(request, user)
             return redirect('webkiosk:dashboard')
         else:
-            messages.error(request, "Your username or password is incorrect. Please try again.")
+            message = "Your username or password is incorrect. Try again buddy!"
 
         # if Account.objects.filter(email=em, password=pw).exists():
         #     return render(request, 'webkiosk/dashboard.html')
@@ -48,14 +49,12 @@ def logoutuser(request):
     logout(request)
     return redirect('webkiosk:home')
 
-# add log in restrictions
-
 @login_required(login_url='webkiosk:login')
 
 def dashboard(request):
     return render(request, 'webkiosk/dashboard.html')
 
-# food
+# food functions
 
 def fooditems(request):
     context = Food.objects.all()
@@ -91,11 +90,12 @@ def editfood(request, pk):
         form = FoodForm(request.POST)
 
         name = request.POST.get('name')
+        message = request.POST.get('message')
         desc = request.POST.get('description')
         price = request.POST.get('price')
 
-        if Food.objects.filter(name=name, description=desc,price=price).exists():
-            messages.error(request, "You did not make any update!")
+        if Food.objects.filter(name=name, description=desc, price=price).exists():
+            message = "Are you sure you updated things, buddy?"
         
         else:
             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
@@ -128,7 +128,7 @@ def editfood(request, pk):
         form = FoodForm(request.POST, instance=food)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Got the edits boss!')
+            messages.success(request, 'Got the edit/s boss!')
     context = {'form': form}
     return render(request, 'webkiosk/food.html', context)
 
