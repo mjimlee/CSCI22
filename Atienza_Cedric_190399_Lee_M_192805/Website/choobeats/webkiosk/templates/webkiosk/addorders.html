@@ -1,0 +1,135 @@
+{% extends 'webkiosk/base.html' %}
+{% load static %}
+
+{% block pagetitle %}Add an order{% endblock %}
+
+{% block maincontent %}
+    <section class="body__container">
+        <div class="body__wrapper">
+            <div class="header__elements">
+                <a href="{% url 'webkiosk:order-list' %}" class="food__header">
+                    <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-left-arrow_Z1zQd3vTE.svg" alt="Gray Arrow">
+                    Add an order
+                </a>
+            </div>
+            <div class="input__elements">
+                <p class="input__title">Customer Name</p>
+                <select id="dropdown__input__field">
+                    <option value="Arizona Robbins">Arizona Robbins</option>
+                    <option value="Atticus Lincoln">Atticus Lincoln</option>
+                    <option value="Bailey Grey-Shepherd">Bailey Grey-Shepherd</option>
+                    <option value="Sofia Robbin">Sofia Robbin</option>
+                    <option value="Winston Ndugu">Winston Ndugu</option>
+                </select> 
+                <p class="input__title">Customer Email</p>
+                <input class="input__field__short" type="text" placeholder="Email">
+                <p class="input__title">Customer Mobile Number</p>
+                <input class="input__field__short" type="text" placeholder="Mobile Number">
+                <p class="input__title">Payment Method</p>
+                <select id="dropdown__input__field">
+                    <option value="Cash">Cash</option>
+                    <option value="Card">Card</option>
+                </select>                
+                <p class="input__title">Shipping Address</p>
+                <input class="input__field__short" type="text" style="margin: 0.5rem 0 0 0;;"placeholder="Street Address">
+                <div class="custom__input__field">
+                    <input class="input__field__half" type="text" placeholder="City">
+                    <input class="input__field__half" type="text" placeholder="Province">
+                </div>
+                <p class="input__title">Delivery Date</p>
+                <input class="input__field__short" type="text" style="margin: 0.5rem 0 0 0;;"placeholder="Street Address">
+                <div class="custom__input__field">
+                    <input class="input__field__half" type="text" placeholder="Month" style="width: 135px;">
+                    <input class="input__field__half" type="text" placeholder="Day" style="width: 110px;">
+                    <input class="input__field__half" type="text" placeholder="Year" style="width: 110px;">
+                </div>
+            </div>
+            <hr style="width: 520px;">
+            <div class="basket__content">
+                <p class="header bold" style="padding: 0 0 1rem 0;">Basket</p>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0"></textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">Chocolate Chip Cookies</p>
+                                <p id="basket__product__value">PHP 650</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">0.00</p>
+                </div>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0"></textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">Nutella Cookies</p>
+                                <p id="basket__product__value">PHP 700</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">0.00</p>
+                </div>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0"></textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">Oatmeal Cookies</p>
+                                <p id="basket__product__value">PHP 650</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">0.00</p>
+                </div>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0">1</textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">Raisin Cookies</p>
+                                <p id="basket__product__value">PHP 600</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">600.00</p>
+                </div>
+                <div class="basket__table__row">
+                    <div style="display:flex;">
+                        <form>
+                            <textarea id="basket__item__quantity" placeholder="0">1</textarea>
+                        </form>
+                        <div class="basket__product__item">
+                            <div class="basket__product__texts">
+                                <p id="basket__product">White Chocolate Cookies</p>
+                                <p id="basket__product__value">PHP 750</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="bold">750.00</p>
+                </div>
+            </div>   
+            <hr style="width: 520px;">
+            <div id="basket__total">
+                <p class="bold">Order Total</p>
+                <p class="bold">PHP 1350.00</p>
+            </div>         
+            <hr style="width: 520px;">
+            <div class="button__element">
+                <button class="button secondary-btn" id="nevermind-product-btn">Never mind</button>
+                <button class="button primary-btn" id="save-product-btn">Save customer</button>
+            </div>
+        </div>
+    </section>
+
+<script src="nav.js"></script>
+{% endblock %}

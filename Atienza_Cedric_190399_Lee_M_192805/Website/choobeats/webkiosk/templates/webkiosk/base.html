@@ -1,0 +1,74 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block pagetitle %}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{% static 'webkiosk/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/landing.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/signin.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/dashboard.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/customers.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/food.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/orders.css' %}">
+    <link rel="stylesheet" href="{% static 'webkiosk/css/register.css' %}">
+</head>
+
+<body>
+    <main>
+        {% block mainnav %}
+        <nav class="nav__container">
+            <div class="items" id="js_items">
+                <li><a href="{% url 'webkiosk:dashboard' %}"><img 
+                    src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/green-choobEats-logo__JWR6wYMY.svg" 
+                    alt="choobEats Logo"
+                    id="company__logo"></a></li>
+                <li><a href="{% url 'webkiosk:dashboard' %}" class="nav__text">Dashboard</a></li>
+                <li><a href="{% url 'webkiosk:order-list' %}" class="nav__text">Orders</a></li>
+                <li><a href="{% url 'webkiosk:food-items' %}" class="nav__text">Food</a></li>
+                <li><a href="{% url 'webkiosk:customer-list' %}" class="nav__text">Customers</a></li>
+            </div>
+            <div class="mobile__nav__display__icon">
+                <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/green-mobile-icon_OSFDvu2q3.svg" 
+                alt="Mobile Icon"
+                id="js_mobile_icon">
+            </div>
+            <div class="user__info" id="js_user_info">
+                <div class="user__items">
+                    <img src="{% static 'webkiosk/assets/Avatar.png' %}" alt="User DP">
+                    <img src="{% static 'webkiosk/assets/icons/fi_chevron-down.svg' %}" alt="Arrow Icon" id="black-arrow-icon">
+                </div>
+            </div>
+        </nav>
+            <div class="user__items__text" id="js_user_items_popup">
+                <a href="{% url 'webkiosk:home' %}">Log Out</a>
+            </div>
+        {% endblock %}
+
+        <section class="body__container">
+            <div class="body__wrapper">
+            {% block maincontent %}
+            {% endblock %}
+    </main>
+</body>
+
+<script>
+    const user = document.getElementById("js_user_info");
+    const popup = document.getElementById("js_user_items_popup");
+        
+    user.addEventListener('click', function() {
+        popup.classList.toggle("active");
+    });
+
+    const mobileIcon = document.getElementById("js_mobile_icon");
+    const mobileNavDisplay = document.getElementById("js_items");
+
+    mobileIcon.addEventListener('click', function() {
+        mobileNavDisplay.classList.toggle("active");
+    });
+</script>
+</html>

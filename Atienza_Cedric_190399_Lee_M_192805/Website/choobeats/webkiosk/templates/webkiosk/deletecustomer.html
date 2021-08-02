@@ -1,0 +1,20 @@
+{% extends 'webkiosk/base.html' %}
+{% load static %}
+
+{% block pagetitle %}Delete{% endblock %}
+
+{% block maincontent %}
+
+<section class = "margin-120">
+    <main class = "container-vert-centered side-margin-12">
+        <img src = "{% static 'webkiosk/assets/icons/large-delete.svg' %}">
+        <h1 class = "text-xl font-semibold margin-24 text-green-500">Are you sure you want to delete this item?</h1>
+        <div class = "cta-button-grid margin-24">
+            <a href="{% url 'webkiosk:customer-list' %}" class="button secondary-btn">Never mind</a>
+            <a href="{% url 'webkiosk:delete-customer-confirm' pk %}" class="button primary-btn">Yes, delete</a>
+        </div>
+    </main>
+
+</section>
+
+{% endblock %}

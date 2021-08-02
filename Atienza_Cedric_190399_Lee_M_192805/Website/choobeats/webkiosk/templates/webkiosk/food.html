@@ -1,0 +1,35 @@
+{% extends 'webkiosk/base.html' %}
+{% load static %}
+
+{% block pagetitle %}Products{% endblock %}
+
+{% block maincontent %}
+<div class="header__elements">
+    <h3 class="header bold">My Food Products</h3>
+    <button class="primary-btn"><a href="{% url 'webkiosk:add-food' %}" id="order__add__button">Add Products</a></button>
+</div>
+
+
+<div class="table__box">
+    <div class="table__row table__head food">
+        <div class="table__cell first__cell">
+            <p><input id="checkbox-item" type="checkbox"></p>
+        </div>
+        <p class="table__cell" id="table__cell-header">Food Product <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-down-arrow_WRx44HttsD.svg" alt="Gray Arrow" id="gray-arrow-icon"></p>
+        <p class="table__cell" id="table__cell-header">Price</p>
+    </div>
+    {% for food in fooditems %}
+    <div class="table__row food">
+        <div class="table__cell first__cell">
+            <p><input id="checkbox-item" type="checkbox"></p>
+        </div>
+        <a href = "{% url 'webkiosk:food-details' pk=food.pk %}"><p class="table__cell" id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">{{ food.name }}</span></p></a>
+        <p class="table__cell" id="table__cell-text">PHP {{ food.price }}</p>
+        <div class="table__cell last__cell">
+            <a href = "{% url 'webkiosk:edit-food' pk=food.pk %}"><img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon"></a>
+            <a href = "{% url 'webkiosk:delete-food' pk=food.pk %}"><img src="{% static 'webkiosk/assets/icons/u_trash-alt.svg' %}" alt="Trash Icon" style="margin: 0 0 0 24px;"></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

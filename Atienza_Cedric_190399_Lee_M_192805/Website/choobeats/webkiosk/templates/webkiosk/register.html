@@ -1,0 +1,62 @@
+{% extends 'webkiosk/baseindex.html' %}
+{% load static %}
+
+{% block pagetitle %}ChoobEats: Manage your online business with only a few clicks.{% endblock %}
+
+{% block maincontent %}
+
+    <nav class = "hero-nav">
+        <a class = "nav-logo-link" href = "{% url 'webkiosk:home' %}"> <img class = "nav-logo" src = "{% static 'webkiosk/assets/logo-green.png' %}"></a>
+        <div class = "nav-buttons">
+            <a href="{% url 'webkiosk:login' %}" class="button secondary-btn">Log In</a>
+            <a href="{% url 'webkiosk:register' %}" class="button primary-btn">Register</a>
+        </div>
+    </nav>
+
+    <section class = "full-height">
+        <div class = "container-vert-centered side-margin-12">
+            <main class = "form-card">
+                <h1 class = "text-xl font-semibold">Create a ChoobEats account.</h1>
+                <p class = "text-base font-normal margin-12 text-gray-500">A few clicks away from easy business management!</p>
+                <div class = "form-grid margin-24">
+                    <input type="text" class="input__field__short" placeholder="Email">
+                    <input type="text" class="input__field__short" placeholder="Password">
+                    <input type="text" class="input__field__short" placeholder="Confirm Password">
+                    <a href="{% url 'webkiosk:dashboard' %}" class="button primary-btn full-button-width margin-12">Create an account</a>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <footer class = "landing-footer">
+        <div class = "footer-container">
+
+            <div class = "footer-company">
+                <img src = "assets/logo-green.png">
+                <p class = "text-sm text-gray-500 margin-12">Manage your online business with only a few clicks.</p>
+                <p class = "text-sm text-green-500 margin-16">support@choobeats.com</p>
+                <!-- <p class = "text-sm text-gray-400 margin-64">© Copyright 2021 ChoobEats</p> -->
+            </div>
+
+            <nav class = "grid-footer-navs">
+                <div class = "grid-footer-navs-item">
+                    <h5 class = "text-sm font-semibold text-green-500">Product</h5>
+                    <a class = "font-normal text-gray-500 margin-12">Home</a>
+                    <a class = "font-normal text-gray-500">Log In</a>
+                    <a class = "font-normal text-gray-500">Register</a>
+                </div>
+
+                <div class = "grid-footer-navs-item">
+                    <h5 class = "text-sm font-semibold text-green-500">Resources</h5>
+                    <a class = "font-normal text-gray-500 margin-12">Careers</a>
+                    <a class = "font-normal text-gray-500">Terms of Use</a>
+                    <a class = "font-normal text-gray-500">Privacy Policy</a>
+                </div>
+
+            </nav>
+
+        </div>
+    </footer>
+
+</body>
+{% endblock %}

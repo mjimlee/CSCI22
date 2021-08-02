@@ -1,0 +1,35 @@
+{% extends 'webkiosk/base.html' %}
+{% load static %}
+
+{% block pagetitle %}Add a product{% endblock %}
+
+{% block maincontent %}
+    {% for food in editfood %}
+        <section class="body__container">
+            <div class="body__wrapper">
+                <div class="header__elements">
+                    <a href="{% url 'webkiosk:food-items' %}" class="food__header">
+                        <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-left-arrow_Z1zQd3vTE.svg" alt="Gray Arrow">
+                        Edit a product
+                    </a>
+                </div>
+                <p class = "text-base margin-12 text-red-500">{{message}}</p>
+                <div class="input__elements margin-24">
+                    <form method = 'POST' action = "{% url 'webkiosk:edit-food' pk=food.pk %}">{% csrf_token %}
+                        <p class="input__title">Product Name</p>
+                        <input type="text" name = "name" class="input__field__short" value="{{food.name}}">
+                        <input type="text" name = "price" class="input__field__short" value="{{food.price}}">
+                        <p class="input__title">Product Description</p>
+                        <textarea name = "description">{{food.description}}</textarea>
+                        <div class="button__element">
+                            <a href = "{% url 'webkiosk:food-items' %}"><button class="button secondary-btn">Never mind</button></a>
+                            <input type = "submit" name = "submit" value = "Save Product" class="form-btn primary-btn full-button-width margin-12">
+                        </div>
+                    </form>
+
+            </div>
+        </section>
+    {% endfor %}
+
+<script src="nav.js"></script>
+{% endblock %}
