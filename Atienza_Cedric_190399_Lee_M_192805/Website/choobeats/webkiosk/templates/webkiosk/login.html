@@ -23,7 +23,7 @@
                 {% endfor %}
                 <div class = "form-grid margin-24">
                     <form method = 'POST' action = "{% url 'webkiosk:login' %}">{% csrf_token %}
-                        <input type="text" name = "email" class="input__field__short" placeholder="Email">
+                        <input type="text" name = "username" class="input__field__short" placeholder="Username">
                         <input type="password" name = "password" class="input__field__short" placeholder="Password">
                         <input type = "submit" name = "submit" value = "Log In" class="form-btn primary-btn full-button-width margin-12">
                     </form>
