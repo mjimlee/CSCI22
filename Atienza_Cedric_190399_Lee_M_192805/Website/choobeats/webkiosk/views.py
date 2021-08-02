@@ -8,6 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .models import *
 from .forms import FoodForm, OrderForm, CustomerForm, CreateUserForm, LoginForm
 
+
 def home(request):
     return render(request, 'webkiosk/index.html')
 
@@ -34,22 +35,20 @@ def loginpage(request):
             return render(request, 'webkiosk/dashboard.html')
         
         else:
-            message = "Your username or password is incorrect. Please try again."
+            message = "Your username or password is incorrect. Try again buddy!"
 
-    return render(request, 'webkiosk/signin.html', {'message': message})
+    return render(request, 'webkiosk/login.html', {'message': message})
 
 def logoutuser(request):
     logout(request)
     return redirect('webkiosk:login')
-
-# add log in restrictions
 
 @login_required(login_url='webkiosk:login')
 
 def dashboard(request):
     return render(request, 'webkiosk/dashboard.html')
 
-# food
+# food functions
 
 def fooditems(request):
     context = Food.objects.all()
@@ -84,11 +83,12 @@ def editfood(request, pk):
         form = FoodForm(request.POST)
 
         name = request.POST.get('name')
+        message = request.POST.get('message')
         desc = request.POST.get('description')
         price = request.POST.get('price')
 
-        if Food.objects.filter(name=name, description=desc,price=price).exists():
-            message = "You did not make any update!"
+        if Food.objects.filter(name=name, description=desc, price=price).exists():
+            message = "Are you sure you updated things, buddy?"
         
         else:
             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
@@ -119,7 +119,7 @@ def editfood(request, pk):
         form = FoodForm(request.POST, instance=food)
         if form.is_valid():
             form.save()
-            messages.success(request, 'Got the edits boss!')
+            messages.success(request, 'Got the edit/s boss!')
     context = {'form': form}
     return render(request, 'webkiosk/food.html', context)
 
@@ -189,7 +189,7 @@ def addcustomer(request):
         prov = request.POST.get('prov')
 
         if Customer.objects.filter(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov).exists():
-            message = "You already have this exact customer in your customer list! Add a new one."
+            message = "You already have this customer in your customer list! Add a new one."
         
         else:
             Customer.objects.create(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov)
