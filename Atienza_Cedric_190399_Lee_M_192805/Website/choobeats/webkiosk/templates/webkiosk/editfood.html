@@ -13,7 +13,9 @@
                         Edit a product
                     </a>
                 </div>
-                <p class = "text-base margin-12 text-red-500">{{message}}</p>
+                {% for message in messages %}
+                <p class = "message-text text-red-500">{{message}}</p>
+                {% endfor %}
                 <div class="input__elements margin-24">
                     <form method = 'POST' action = "{% url 'webkiosk:edit-food' pk=food.pk %}">{% csrf_token %}
                         <p class="input__title">Product Name</p>
