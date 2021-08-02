@@ -19,12 +19,9 @@ from django.http import HttpResponse
 
 app_name = 'webkiosk'
 urlpatterns = [
-
     path('index/', views.home, name = 'home'),
-
     path('register/', views.registerpage, name='register'),
     path('login/', views.loginpage, name='login'),
-    #log in page missing
     path('logout/', views.logoutuser, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     
@@ -33,7 +30,6 @@ urlpatterns = [
     path('food/add/', views.addfood, name='add-food'),
     path('food/<int:pk>/', views.fooddetails, name = 'food-details'),
     path('food/edit/<int:pk>/', views.editfood, name = 'edit-food'),
-
     path('food/delete/<int:pk>/', views.deletepagefood, name = 'delete-food'),
     path('food/delete/<int:pk>/confirm/', views.deletefood, name = 'delete-food-confirm'),
 
@@ -48,7 +44,4 @@ urlpatterns = [
     path('customer/edit/<int:pk>/', views.editcustomer, name = 'edit-customer'),
     path('customer/delete/<int:pk>/', views.deletepagecustomer, name = 'delete-customer'),
     path('customer/delete/<int:pk>/confirm/', views.deletecustomer, name = 'delete-customer-confirm'),
-
-
-
 ]
