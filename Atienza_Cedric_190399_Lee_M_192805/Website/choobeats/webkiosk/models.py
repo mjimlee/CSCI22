@@ -16,10 +16,9 @@ class Customer(models.Model):
     city = models.CharField(max_length=1000)
     province = models.CharField(max_length=1000)
     email = models.CharField(max_length=1000, null=True)
-    number =  models.IntegerField(max_length=20)
 
     def __str__(self):
-        return f'{self.id}: {self.firstname} {self.lastname}, {self.address} {self.city}, {self.email}, {self.number}'
+        return f'{self.id}: {self.firstname} {self.lastname}, {self.address} {self.city}, {self.email}'
 
 class Food(models.Model):
     name = models.CharField(max_length=40)
@@ -36,7 +35,7 @@ class Order(models.Model):
         ('CH', 'Cash'),
         ('CD', 'Card')
     ]
-    paymentmode = models.CharField(max_length=2, choices=PAYMENT_MODE_CHOICES)
+    paymentmode = models.CharField(max_length=100, choices=PAYMENT_MODE_CHOICES)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     orderdatetime = models.DateTimeField(auto_now_add=True)
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
