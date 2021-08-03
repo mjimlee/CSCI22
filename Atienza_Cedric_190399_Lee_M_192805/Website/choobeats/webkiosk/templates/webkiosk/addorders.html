@@ -23,7 +23,7 @@
                     <p class="input__title">Food Order</p>
                     <select id="dropdown__input__field" name="food">
                         {% for food in foods %}
-                        <option value="{{ food.pk }}">{{ food.name }}</option>
+                        <option value="{{ food.pk }}">{{ food.name }} || PHP {{ food.price }}</option>
                         {% endfor %}
                     </select>
                     <p class="input__title">Quantity</p>
@@ -34,7 +34,6 @@
                         <option value="CD">Card</option>
                     </select>
                     <div class="button__element">
-                        <a href = "{% url 'webkiosk:order-list' %}"><button class="button secondary-btn">Never mind</button></a>
                         <input type = "submit" name = "submit" value = "Save Order" class="form-btn primary-btn full-button-width margin-12">
                     </div>
                 </form>

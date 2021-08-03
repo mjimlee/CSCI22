@@ -17,28 +17,30 @@
             <p class = "message-text text-red-500">{{message}}</p>
             {% endfor %}
             <div class="input__elements">
-                <form method = 'POST' action = "{% url 'webkiosk:add-order' %}">{% csrf_token %}
+                <form method = 'POST' action = "{% url 'webkiosk:edit-order' pk=order.pk %}">{% csrf_token %}
                     <p class="input__title">Customer Name</p>
-                    <select id="dropdown__input__field" name="customer" value="{{ order.customer.firstname }} {{ order.customer.lastname }}">
+                    <select id="dropdown__input__field" name="customer">
+                        <option selected value ="{{ order.customer.pk }}"> {{ order.customer.firstname }} {{ order.customer.lastname }}</option>
                         {% for customer in customers %}
                         <option value="{{ customer.pk }}">{{ customer.firstname }} {{ customer.lastname }}</option>
                         {% endfor %}
                     </select>
                     <p class="input__title">Food Order</p>
-                    <select id="dropdown__input__field" name="food" value="{{ order.food.name }}">
+                    <select id="dropdown__input__field" name="food">
+                        <option selected value = "{{ order.food.pk }}">{{order.food.name}} || PHP {{order.food.price}}</option>
                         {% for food in foods %}
-                        <option value="{{ food.pk }}">{{ food.name }}</option>
+                        <option value="{{ food.pk }}">{{ food.name }} || PHP {{ food.price }}</option>
                         {% endfor %}
                     </select>
                     <p class="input__title">Quantity</p>
                     <input type="text" name = "quantity" class="input__field__short" value="{{order.quantity}}">
                     <p class="input__title">Payment Method</p>
-                    <select id="dropdown__input__field" name="paymentmode" value ="{{ order.paymentmode }}">
-                        <option value="CH">Cash</option>
-                        <option value="CD">Card</option>
+                    <select id="dropdown__input__field" name="paymentmode">
+                        <option selected value = "{{order.paymentmode}}">{{order.paymentmode}}</option>"
+                        <option value="CH">CH | Cash</option>
+                        <option value="CD">CD | Card</option>
                     </select>
                     <div class="button__element">
-                        <a href = "{% url 'webkiosk:order-list' %}"><button class="button secondary-btn">Never mind</button></a>
                         <input type = "submit" name = "submit" value = "Save Order" class="form-btn primary-btn full-button-width margin-12">
                     </div>
                 </form>

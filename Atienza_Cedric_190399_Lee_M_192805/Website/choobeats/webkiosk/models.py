@@ -35,7 +35,7 @@ class Order(models.Model):
         ('CH', 'Cash'),
         ('CD', 'Card')
     ]
-    paymentmode = models.CharField(max_length=2, choices=PAYMENT_MODE_CHOICES)
+    paymentmode = models.CharField(max_length=100, choices=PAYMENT_MODE_CHOICES)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     orderdatetime = models.DateTimeField(auto_now_add=True)
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
