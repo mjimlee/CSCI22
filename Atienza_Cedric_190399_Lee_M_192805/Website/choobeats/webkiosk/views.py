@@ -120,17 +120,7 @@ def detailfood(request, pk):
     return render(request, 'webkiosk/food.html', context)
 
 # @login_required(login_url='webkiosk:login')
-def editfood(request, pk):
-    food = Food.objects.get(id=pk)
-    if request.method == 'GET':
-        form = FoodForm(instance=food)
-    elif request.method == 'POST':
-        form = FoodForm(request.POST, instance=food)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Got the edits boss!')
-    context = {'form': form}
-    return render(request, 'webkiosk/food.html', context)
+
 
 # order functions
 def orderlist(request):
