@@ -52,7 +52,8 @@ def logoutuser(request):
 @login_required(login_url='webkiosk:login')
 
 def dashboard(request):
-    return render(request, 'webkiosk/dashboard.html')
+    context = Order.objects.all()[:3]
+    return render(request, 'webkiosk/dashboard.html', {'orderlist':context})
 
 # food functions
 
