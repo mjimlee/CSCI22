@@ -52,7 +52,8 @@ def logoutuser(request):
 @login_required(login_url='webkiosk:login')
 
 def dashboard(request):
-    return render(request, 'webkiosk/dashboard.html')
+    context = Order.objects.all()[:3]
+    return render(request, 'webkiosk/dashboard.html', {'orderlist':context})
 
 # food functions
 
@@ -257,6 +258,7 @@ def editcustomer(request, pk):
             messages.success(request,"Successfully updated!")
 
             return redirect('webkiosk:customer-list')
+            
     return render(request, 'webkiosk/editcustomer.html', {'editcustomer':context})
 
 def deletepagecustomer(request,pk):
