@@ -14,7 +14,8 @@
             </div>
             {% for message in messages %}
             <p class = "message-text text-red-500">{{message}}</p>
-            {% endfor %}            <div class="input__elements">
+            {% endfor %}            
+            <div class="input__elements">
                 <form method = 'POST' action = "{% url 'webkiosk:add-food' %}">{% csrf_token %}
                     <p class="input__title">Product Name</p>
                     <input type="text" name = "name" class="input__field__short" placeholder="Name">
