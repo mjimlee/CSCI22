@@ -89,17 +89,17 @@ def editfood(request, pk):
         form = FoodForm(request.POST)
 
         name = request.POST.get('name')
-        message = request.POST.get('message')
         desc = request.POST.get('description')
         price = request.POST.get('price')
 
         if Food.objects.filter(name=name, description=desc, price=price).exists():
-            message = "Are you sure you updated things, buddy?"
+            messages.error(request, "Are you sure you updated things, buddy?")
         
         else:
             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
             messages.success(request,"Successfully edited!")
             return redirect('webkiosk:food-items')
+
     return render(request, 'webkiosk/editfood.html', {'editfood':context})
 
 def deletepagefood(request,pk):
@@ -196,16 +196,15 @@ def addcustomer(request):
         fname = request.POST.get('fname')
         lname = request.POST.get('lname')
         email = request.POST.get('email')
-        num = request.POST.get('num')
         ad = request.POST.get('ad')
         city = request.POST.get('city')
         prov = request.POST.get('prov')
 
-        if Customer.objects.filter(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov).exists():
+        if Customer.objects.filter(firstname=fname, lastname=lname,email=email, address=ad, city=city, province=prov).exists():
             messages.error(request,"You already have this exact customer in your customer list! Add a new one.")
         
         else:
-            Customer.objects.create(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov)
+            Customer.objects.create(firstname=fname, lastname=lname,email=email, address=ad, city=city, province=prov)
             messages.success(request,"Successfully added!")
 
             return redirect('webkiosk:customer-list')
@@ -229,11 +228,11 @@ def editcustomer(request, pk):
         city = request.POST.get('city')
         prov = request.POST.get('prov')
 
-        if Customer.objects.filter(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov).exists():
+        if Customer.objects.filter(firstname=fname, lastname=lname,email=email, address=ad, city=city, province=prov).exists():
             messages.error(request,"You didn't make any changes!")
 
         else:
-            Customer.objects.filter(pk=pk).update(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov)
+            Customer.objects.filter(pk=pk).update(firstname=fname, lastname=lname,email=email, address=ad, city=city, province=prov)
             messages.success(request,"Successfully updated!")
 
             return redirect('webkiosk:customer-list')

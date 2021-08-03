@@ -18,7 +18,7 @@ class LoginForm(ModelForm):
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
-        fields = ['firstname', 'lastname', 'email', 'number', 'address', 'city', 'province']
+        fields = ['firstname', 'lastname', 'email', 'address', 'city', 'province']
         
 class FoodForm(ModelForm):
     class Meta:

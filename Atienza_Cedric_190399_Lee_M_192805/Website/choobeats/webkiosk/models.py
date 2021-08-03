@@ -16,10 +16,9 @@ class Customer(models.Model):
     city = models.CharField(max_length=1000)
     province = models.CharField(max_length=1000)
     email = models.CharField(max_length=1000, null=True)
-    number =  models.IntegerField(max_length=20)
 
     def __str__(self):
-        return f'{self.id}: {self.firstname} {self.lastname}, {self.address} {self.city}, {self.email}, {self.number}'
+        return f'{self.id}: {self.firstname} {self.lastname}, {self.address} {self.city}, {self.email}'
 
 class Food(models.Model):
     name = models.CharField(max_length=40)

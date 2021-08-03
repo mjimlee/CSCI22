@@ -13,6 +13,9 @@
                     Edit
                 </a>
             </div>
+            {% for message in messages %}
+            <p class = "message-text text-red-500">{{message}}</p>
+            {% endfor %}
             <div class="input__elements">
                 <form method = 'POST' action = "{% url 'webkiosk:add-order' %}">{% csrf_token %}
                     <p class="input__title">Customer Name</p>

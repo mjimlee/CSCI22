@@ -13,7 +13,9 @@
                         Edit customer
                     </a>
                 </div>
-                <p class = "text-base margin-12 text-red-500">{{message}}</p>
+                {% for message in messages %}
+                <p class = "message-text text-red-500">{{message}}</p>
+                {% endfor %}                
                 <div class="input__elements margin-24">
                     <form method = 'POST' action = "{% url 'webkiosk:edit-customer' pk=c.pk %}">{% csrf_token %}
                         <p class="input__title">First Name</p>
@@ -22,8 +24,6 @@
                         <input type="text" name = "lname" class="input__field__short" value="{{c.lastname}}">
                         <p class="input__title">Email</p>
                         <input type="text" name = "email" class="input__field__short" value="{{c.email}}">
-                        <p class="input__title">Mobile Number</p>
-                        <input type="number" name = "num" class="input__field__short" value="{{c.number}}">
                         <p class="input__title">Street Address</p>
                         <input type="text" name = "ad" class="input__field__short" value="{{c.address}}">
                         <p class="input__title">City</p>

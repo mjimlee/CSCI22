@@ -27,7 +27,7 @@
                         <p id="table__cell-header">Location</p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-header">Mobile Number</p>
+                        <p id="table__cell-header">Email</p>
                     </div>
                     <div class="table__cell last__cell"></div>
                 </div>
@@ -44,7 +44,7 @@
                         <p id="table__cell-text">{{customer.city}}</p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-text">{{customer.number}}</p>
+                        <p id="table__cell-text">{{customer.email}}</p>
                     </div>
                     <div class="table__cell last__cell">
                         <a href = "{% url 'webkiosk:edit-customer' pk=customer.pk %}"><img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon"></a>
