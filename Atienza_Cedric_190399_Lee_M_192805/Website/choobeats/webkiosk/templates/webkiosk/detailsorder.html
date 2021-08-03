@@ -26,7 +26,7 @@
                     <p>{{order.customer.address}}<br>{{order.customer.city}}, {{order.customer.province}}</p>
                 </div>
             </section>
-            <h2 class="order__total header">{{order.food.name}}: PHP {{order.total_price}}</h2>
+            <h2 class="order__total header">{{order.food.name}} ({{order.quantity}}): PHP {{order.total_price}} </h2>
         </div>
     </section>
 {% endblock %}
