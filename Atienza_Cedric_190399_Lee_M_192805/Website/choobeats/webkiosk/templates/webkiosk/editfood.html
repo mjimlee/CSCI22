@@ -17,18 +17,18 @@
                 <p class = "message-text text-red-500">{{message}}</p>
                 {% endfor %}
                 <div class="input__elements margin-24">
-                    <form method = 'POST' action = "{% url 'webkiosk:edit-food' pk=food.pk %}">{% csrf_token %}
+                    <form method = 'POST' action = "{% url 'webkiosk:edit-food' pk=food.pk %}">
+                        {% csrf_token %}
                         <p class="input__title">Product Name</p>
                         <input type="text" name = "name" class="input__field__short" value="{{food.name}}">
                         <input type="text" name = "price" class="input__field__short" value="{{food.price}}">
                         <p class="input__title">Product Description</p>
                         <textarea name = "description">{{food.description}}</textarea>
                         <div class="button__element">
-                            <a href = "{% url 'webkiosk:food-items' %}"><button class="button secondary-btn">Never mind</button></a>
+                            <a href = "{% url 'webkiosk:food-items' pk=food.pk %}"><button class="button secondary-btn">Never mind</button></a>
                             <input type = "submit" name = "submit" value = "Save Product" class="form-btn primary-btn full-button-width margin-12">
                         </div>
                     </form>
-
             </div>
         </section>
     {% endfor %}

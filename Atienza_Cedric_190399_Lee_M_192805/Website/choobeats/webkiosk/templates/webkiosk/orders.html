@@ -8,8 +8,11 @@
         <div class="body__wrapper">
             <div class="header__elements">
                 <h3 class="header bold">Latest Orders</h3>
-                <button class="primary-btn"><a href="{% url 'webkiosk:add-order' %}" id="order__add__button">Add Orders</a></button>
+                <button class="primary-btn"><a href="{% url 'webkiosk:add-order' %}" id="order__add__button">Add Order</a></button>
             </div>
+            {% for message in messages %}
+            <p class = "message-text text-green-500">{{message}}</p>
+            {% endfor %}
             <div class="table__box">
                 <div class="table__row table__head orders">
                     <div class="table__cell first__cell">
@@ -29,116 +32,29 @@
                     </div>
                     <div class="table__cell last__cell"></div>
                 </div>
-
+                {% for order in orderlist %}
                 <div class="table__row orders">
                     <div class="table__cell first__cell">
                         <p><input id="checkbox-item" type="checkbox"></p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-text">June 13, 2021</p>
+                        <p id="table__cell-text">{{ order.orderdatetime }}</p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-text"><a href = "samples/order1.html"><span style="color:#10B981; text-decoration: underline;">CKG001</span></a></p>
+                        <a href = "{% url 'webkiosk:detail-order' pk=order.pk %}"><p id="table__cell-text"><span style="color:#10B981; text-decoration: underline;">{{ order.pk }}</a></span></p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-text">Atticus Lincoln</p>
+                        <p id="table__cell-text">{{ order.customer.firstname }} {{ order.customer.lastname }}</p>
                     </div>
                     <div class="table__cell">
-                        <p id="table__cell-text">PHP 1250.00</p>
+                        <p id="table__cell-text">PHP {{ order.total_price }}</p>
                     </div>
                     <div class="table__cell last__cell">
-                        <img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon">
-                        <img src="{% static 'webkiosk/assets/icons/u_trash-alt.svg' %}" alt="Trash Icon" style="margin: 0 0 0 24px;">
+                        <a href = "{% url 'webkiosk:edit-order' pk=order.pk %}"><img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon"></a>
+                        <a href = "{% url 'webkiosk:delete-order' pk=order.pk %}"><img src="{% static 'webkiosk/assets/icons/u_trash-alt.svg' %}" alt="Trash Icon" style="margin: 0 0 0 24px;"></a>
                     </div>
                 </div>
-
-                <div class="table__row orders">
-                    <div class="table__cell first__cell">
-                        <p><input id="checkbox-item" type="checkbox"></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">June 13, 2021</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"><a href = "samples/order2.html"><span style="color:#10B981; text-decoration: underline;">CKG002</span></a></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">Arizona Robbins</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">PHP 650.00</p>
-                    </div>
-                    <div class="table__cell last__cell">
-                        <img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon">
-                        <img src="{% static 'webkiosk/assets/icons/u_trash-alt.svg' %}" alt="Trash Icon" style="margin: 0 0 0 24px;">
-                    </div>
-                </div>
-
-                <div class="table__row orders">
-                    <div class="table__cell first__cell">
-                        <p><input id="checkbox-item" type="checkbox"></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">June 13, 2021</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"><a href = "orders.html"><span style="color:#10B981; text-decoration: underline;">CKG003</span></a></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">Winston Ndugu</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">PHP 1450.00</p>
-                    </div>
-                    <div class="table__cell last__cell">
-                        <img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon">
-                        <img src="{% static 'webkiosk/assets/icons/u_trash-alt.svg' %}" alt="Trash Icon" style="margin: 0 0 0 24px;">
-                    </div>
-                </div>
-
-                <div class="table__row orders">
-                    <div class="table__cell first__cell">
-                        <p><input id="checkbox-item" type="checkbox"></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">June 13, 2021</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"><a href = "orders.html"><span style="color:#10B981; text-decoration: underline;">CKG004</span></a></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">Sofia Robbin</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">PHP 1300.00</p>
-                    </div>
-                    <div class="table__cell last__cell">
-                        <img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon">
-                        <img src="{% static 'webkiosk/assets/icons/u_trash-alt.svg' %}" alt="Trash Icon" style="margin: 0 0 0 24px;">
-                    </div>
-                </div>
-
-                <div class="table__row orders">
-                    <div class="table__cell first__cell">
-                        <p><input id="checkbox-item" type="checkbox"></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">June 13, 2021</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text"><a href = "orders.html"><span style="color:#10B981; text-decoration: underline;">CKG005</span></a></p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">Bailey Grey-Shepherd</p>
-                    </div>
-                    <div class="table__cell">
-                        <p id="table__cell-text">PHP 600.00</p>
-                    </div>
-                    <div class="table__cell last__cell">
-                        <img src="{% static 'webkiosk/assets/icons/u_edit.svg' %}" alt="Edit Icon">
-                        <img src="{% static 'webkiosk/assets/icons/u_trash-alt.svg' %}" alt="Trash Icon" style="margin: 0 0 0 24px;">
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

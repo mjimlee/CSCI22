@@ -4,9 +4,11 @@ from django.contrib import messages
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.shortcuts import get_object_or_404
 
 from .models import *
 from .forms import FoodForm, OrderForm, CustomerForm, CreateUserForm, LoginForm
+
 
 def home(request):
     return render(request, 'webkiosk/index.html')
@@ -23,7 +25,6 @@ def registerpage(request):
             return redirect('webkiosk/dashboard.html')
 
 def loginpage(request):
-
     if request.method == 'POST':
         un = request.POST['username']
         pw = request.POST['password']
@@ -34,7 +35,7 @@ def loginpage(request):
             login(request, user)
             return redirect('webkiosk:dashboard')
         else:
-            messages.error(request, "Your username or password is incorrect. Please try again.")
+            message = "Your username or password is incorrect. Try again buddy!"
 
         # if Account.objects.filter(email=em, password=pw).exists():
         #     return render(request, 'webkiosk/dashboard.html')
@@ -48,20 +49,17 @@ def logoutuser(request):
     logout(request)
     return redirect('webkiosk:home')
 
-# add log in restrictions
-
 @login_required(login_url='webkiosk:login')
 
 def dashboard(request):
     return render(request, 'webkiosk/dashboard.html')
 
-# food
+# food functions
 
 def fooditems(request):
     context = Food.objects.all()
     return render(request, 'webkiosk/food.html', {'fooditems':context})
 
-# @login_required(login_url='webkiosk:login')
 def addfood(request):
     if request.method == 'POST':
         form = FoodForm(request.POST)
@@ -91,18 +89,18 @@ def editfood(request, pk):
         form = FoodForm(request.POST)
 
         name = request.POST.get('name')
+        message = request.POST.get('message')
         desc = request.POST.get('description')
         price = request.POST.get('price')
 
-        if Food.objects.filter(name=name, description=desc,price=price).exists():
-            messages.error(request, "You did not make any update!")
+        if Food.objects.filter(name=name, description=desc, price=price).exists():
+            message = "Are you sure you updated things, buddy?"
         
         else:
             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
             messages.success(request,"Successfully edited!")
             return redirect('webkiosk:food-items')
     return render(request, 'webkiosk/editfood.html', {'editfood':context})
-
 
 def deletepagefood(request,pk):
     Food.objects.filter(pk=pk)
@@ -113,57 +111,75 @@ def deletefood (request, pk):
     messages.error(request, 'Item successfully removed.')
     return redirect('webkiosk:food-items')
 
-# @login_required(login_url='webkiosk:login')
 def detailfood(request, pk):
     food = Food.objects.get(id=pk)
     context = {'food': food}
     return render(request, 'webkiosk/food.html', context)
-
-# @login_required(login_url='webkiosk:login')
-
-
+    
 # order functions
+
 def orderlist(request):
-    context = {'orders': Order.objects.all()}
-    return render(request, 'webkiosk/orders.html', context)
+    context = Order.objects.all()
+    return render(request, 'webkiosk/orders.html', {'orderlist':context})
 
-# @login_required(login_url='webkiosk:login') WORK ON THIS
 def addorder(request):
-    # message = ""
-    # if request.method == 'POST':
-    #     form = FoodForm(request.POST)
+    allfood = Food.objects.all()
+    allcustomer = Customer.objects.all()
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
 
-    #     cust = request.POST.get('customer')
-    #     food = request.POST.get('food')
-    #     quant = request.POST.get('quantity')
-    #     pm = request.POST.get('paymode')
+        cust = get_object_or_404(Customer, pk=request.POST.get('customer'))
+        food = get_object_or_404(Food, pk=request.POST.get('food'))
+        quant = request.POST.get('quantity')
+        pm = request.POST.get('paymentmode')
 
-    #     if Customer.objects.filter(paymentmode=pm, customer=cust,food=food, quantity = quant).exists():
-    #         message = "You already have this exact item in your products list! Add a new one."
+        if Order.objects.filter(customer=cust, food=food, quantity=quant, paymentmode=pm).exists():
+            messages.error(request,"You already have this exact order.")
         
-    #     else:
-    #         Food.objects.create(name=name, description=desc,price=price)
-    #         return redirect('webkiosk:food-items')
-    return render(request, 'webkiosk/addfood.html')
+        else:
+            Order.objects.create(customer=cust, food=food, quantity=quant, paymentmode=pm)
+            messages.success(request,"Successfully added!")
 
-# @login_required(login_url='webkiosk:login')
+            return redirect('webkiosk:order-list')
+    
+    return render(request, 'webkiosk/addorders.html', {'foods':allfood, 'customers':allcustomer})
+
 def detailorder(request, pk):
     order = Order.objects.get(id=pk)
     context ={'order': order}
-    return render(request, 'webkiosk/order.html', context)
+    return render(request, 'webkiosk/detailsorder.html', context)
 
-# @login_required(login_url='webkiosk:login')
 def editorder(request, pk):
-    order = Order.objects.get(id=pk)
-    if request.method == 'GET':
-       form = OrderForm(instance=order)
-    elif request.method == 'POST':
-         form = OrderForm(request.POST, instance=order)
-         if form.is_valid():
-             form.save()
-             messages.success(request, 'I got the order, boss!')
-    context = {'form':form}
-    return render(request, 'webkiosk/order.html', context)
+    allfood = Food.objects.all()
+    allcustomer = Customer.objects.all()
+    context = Order.objects.filter(pk=pk)
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+
+        cust = get_object_or_404(Customer, pk=request.POST.get('customer'))
+        food = get_object_or_404(Food, pk=request.POST.get('food'))
+        quant = request.POST.get('quantity')
+        pm = request.POST.get('paymentmode')
+
+        if Order.objects.filter(customer=cust, food=food, quantity=quant, paymentmode=pm).exists():
+            messages.error(request,"You did not make any changes.")
+        
+        else:
+            Order.objects.filter(pk=pk).update(customer=cust, food=food, quantity=quant, paymentmode=pm)
+            messages.success(request,"Successfully updated!")
+
+            return redirect('webkiosk:order-list')
+    
+    return render(request, 'webkiosk/editorder.html', {'foods':allfood, 'customers':allcustomer, 'editorder':context})
+
+def deletepageorder(request,pk):
+    Order.objects.filter(pk=pk)
+    return render(request, 'webkiosk/deleteorder.html', {'pk':pk})
+
+def deleteorder (request, pk):
+    Order.objects.filter(pk=pk).delete()
+    messages.error(request, 'Item successfully removed.')
+    return redirect('webkiosk:order-list')
 
 # customer functions
 # customers
@@ -173,7 +189,6 @@ def customerlist(request):
     context = Customer.objects.all()
     return render(request, 'webkiosk/customers.html', {'customerlist':context})
 
-# @login_required(login_url='webkiosk:login')
 def addcustomer(request):
     if request.method == 'POST':
         form = CustomerForm(request.POST)
@@ -217,7 +232,6 @@ def editcustomer(request, pk):
         if Customer.objects.filter(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov).exists():
             messages.error(request,"You didn't make any changes!")
 
-        
         else:
             Customer.objects.filter(pk=pk).update(firstname=fname, lastname=lname,email=email, number=num, address=ad, city=city, province=prov)
             messages.success(request,"Successfully updated!")
