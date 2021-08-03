@@ -83,6 +83,25 @@ def fooddetails(request, pk):
     context = Food.objects.filter(pk=pk)
     return render(request, 'webkiosk/detailsfood.html', {'fooddetails':context})
 
+# def editfood(request, pk):
+#     context = Food.objects.filter(pk=pk)
+#     if request.method == 'POST':
+#         form = FoodForm(request.POST)
+
+#         name = request.POST.get('name')
+#         desc = request.POST.get('description')
+#         price = request.POST.get('price')
+
+#         if Food.objects.filter(name=name, description=desc, price=price).exists():
+#             messages.error(request, "Are you sure you updated things, buddy?")
+        
+#         else:
+#             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
+#             messages.success(request,"Successfully edited!")
+#             return redirect('webkiosk:food-items')
+
+#     return render(request, 'webkiosk/editfood.html', {'editfood':context})
+
 def editfood(request, pk):
     context = Food.objects.filter(pk=pk)
     if request.method == 'POST':
@@ -92,15 +111,17 @@ def editfood(request, pk):
         desc = request.POST.get('description')
         price = request.POST.get('price')
 
-        if Food.objects.filter(name=name, description=desc, price=price).exists():
-            messages.error(request, "Are you sure you updated things, buddy?")
+        if Food.objects.filter(name=name, description=desc,price=price).exists():
+            messages.error(request, "You did not make any changes ngek")
         
         else:
             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
-            messages.success(request,"Successfully edited!")
-            return redirect('webkiosk:food-items')
+            messages.success(request, 'Successfully updated.')
 
+            return redirect('webkiosk:food-items')
+    
     return render(request, 'webkiosk/editfood.html', {'editfood':context})
+
 
 def deletepagefood(request,pk):
     Food.objects.filter(pk=pk)
