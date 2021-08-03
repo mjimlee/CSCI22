@@ -81,7 +81,7 @@ DATABASES = {
         'NAME': 'choobeatsdb',
         'USER': 'choobeatsadmin',
         'PASSWORD': '12345',
-        'HOST': 'localhost', #update to url when finished
+        'HOST': 'localhost', 
         'PORT': '3306',
     }
 }

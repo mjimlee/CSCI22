@@ -4,32 +4,39 @@
 {% block pagetitle %}Add an order{% endblock %}
 
 {% block maincontent %}
+    {% for order in editorder %}
     <section class="body__container">
         <div class="body__wrapper">
             <div class="header__elements">
                 <a href="{% url 'webkiosk:order-list' %}" class="food__header">
                     <img src="https://ik.imagekit.io/3qhtdzpqspxp/CSCI/Assets/gray-left-arrow_Z1zQd3vTE.svg" alt="Gray Arrow">
-                    Add an order
+                    Edit
                 </a>
             </div>
+            {% for message in messages %}
+            <p class = "message-text text-red-500">{{message}}</p>
+            {% endfor %}
             <div class="input__elements">
-                <form method = 'POST' action = "{% url 'webkiosk:add-order' %}">{% csrf_token %}
+                <form method = 'POST' action = "{% url 'webkiosk:edit-order' pk=order.pk %}">{% csrf_token %}
                     <p class="input__title">Customer Name</p>
                     <select id="dropdown__input__field" name="customer">
+                        <option selected value ="{{ order.customer.pk }}"> {{ order.customer.firstname }} {{ order.customer.lastname }}</option>
                         {% for customer in customers %}
                         <option value="{{ customer.pk }}">{{ customer.firstname }} {{ customer.lastname }}</option>
                         {% endfor %}
                     </select>
                     <p class="input__title">Food Order</p>
                     <select id="dropdown__input__field" name="food">
+                        <option selected value = "{{ order.food.pk }}">{{order.food.name}} || PHP {{order.food.price}}</option>
                         {% for food in foods %}
                         <option value="{{ food.pk }}">{{ food.name }} || PHP {{ food.price }}</option>
                         {% endfor %}
                     </select>
                     <p class="input__title">Quantity</p>
-                    <input type="text" name= "quantity" class="input__field__short">
+                    <input type="text" name = "quantity" class="input__field__short" value="{{order.quantity}}">
                     <p class="input__title">Payment Method</p>
                     <select id="dropdown__input__field" name="paymentmode">
+                        <option selected value = "{{order.paymentmode}}">{{order.paymentmode}}</option>"
                         <option value="CH">CH | Cash</option>
                         <option value="CD">CD | Card</option>
                     </select>
@@ -40,6 +47,6 @@
             </div>
         </div>
     </section>
-
+    {% endfor %}
 <script src="nav.js"></script>
 {% endblock %}

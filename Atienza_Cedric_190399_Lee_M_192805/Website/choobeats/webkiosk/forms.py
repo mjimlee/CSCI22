@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
 
-from .models import Customer, Food, Order
+from .models import Account, Customer, Food, Order
 
 class CreateUserForm(UserCreationForm):
     class Meta:
@@ -18,7 +18,7 @@ class LoginForm(ModelForm):
 class CustomerForm(ModelForm):
     class Meta:
         model = Customer
-        fields = ['firstname', 'lastname', 'email', 'number', 'address', 'city', 'province']
+        fields = ['firstname', 'lastname', 'email', 'address', 'city', 'province']
         
 class FoodForm(ModelForm):
     class Meta:

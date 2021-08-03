@@ -1,7 +1,7 @@
 {% extends 'webkiosk/base.html' %}
 {% load static %}
 
-{% block pagetitle %}Add a product{% endblock %}
+{% block pagetitle %}Edit a product{% endblock %}
 
 {% block maincontent %}
     {% for food in editfood %}
@@ -13,7 +13,9 @@
                         Edit a product
                     </a>
                 </div>
-                <p class = "text-base margin-12 text-red-500">{{message}}</p>
+                {% for message in messages %}
+                <p class = "message-text text-red-500">{{message}}</p>
+                {% endfor %}
                 <div class="input__elements margin-24">
                     <form method = 'POST' action = "{% url 'webkiosk:edit-food' pk=food.pk %}">{% csrf_token %}
                         <p class="input__title">Product Name</p>
@@ -22,11 +24,9 @@
                         <p class="input__title">Product Description</p>
                         <textarea name = "description">{{food.description}}</textarea>
                         <div class="button__element">
-                            <a href = "{% url 'webkiosk:food-items' %}"><button class="button secondary-btn">Never mind</button></a>
                             <input type = "submit" name = "submit" value = "Save Product" class="form-btn primary-btn full-button-width margin-12">
                         </div>
                     </form>
-
             </div>
         </section>
     {% endfor %}

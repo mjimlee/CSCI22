@@ -12,6 +12,9 @@
                     Add a new customer
                 </a>
             </div>
+            {% for message in messages %}
+            <p class = "message-text text-red-500">{{message}}</p>
+            {% endfor %}     
             <div class="input__elements">
                 <form method = 'POST' action = "{% url 'webkiosk:add-customer' %}">{% csrf_token %}
                     <p class="input__title">First Name</p>
@@ -20,8 +23,6 @@
                     <input type="text" name = "lname" class="input__field__short" placeholder="Last Name">
                     <p class="input__title">Email</p>
                     <input type="text" name = "email" class="input__field__short" placeholder="Email">
-                    <p class="input__title">Mobile Number</p>
-                    <input type="number" name = "num" class="input__field__short" placeholder="Mobile Number">
                     <p class="input__title">Street Address</p>
                     <input type="text" name = "ad" class="input__field__short" placeholder="Street Address">
                     <p class="input__title">City</p>
@@ -29,7 +30,6 @@
                     <p class="input__title">Province</p>
                     <input type="text" name = "prov" class="input__field__short" placeholder="Province">
                     <div class="button__element">
-                        <a href = "{% url 'webkiosk:customer-list' %}"><button class="button secondary-btn">Never mind</button></a>
                         <input type = "submit" name = "submit" value = "Save customer" class="form-btn primary-btn full-button-width margin-12">
                     </div>
                 </form>

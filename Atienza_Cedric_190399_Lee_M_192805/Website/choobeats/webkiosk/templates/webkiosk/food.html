@@ -9,6 +9,9 @@
     <button class="primary-btn"><a href="{% url 'webkiosk:add-food' %}" id="order__add__button">Add Products</a></button>
 </div>
 
+{% for message in messages %}
+<p class = "message-text text-green-500">{{message}}</p>
+{% endfor %}
 
 <div class="table__box">
     <div class="table__row table__head food">
@@ -31,5 +34,6 @@
         </div>
     </div>
     {% endfor %}
+
 </div>
 {% endblock %}

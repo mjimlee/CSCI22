@@ -12,7 +12,9 @@
                     Add a product
                 </a>
             </div>
-            <p class = "text-base margin-12 text-red-500">{{ message }}</p>
+            {% for message in messages %}
+            <p class = "message-text text-red-500">{{message}}</p>
+            {% endfor %}            
             <div class="input__elements">
                 <form method = 'POST' action = "{% url 'webkiosk:add-food' %}">{% csrf_token %}
                     <p class="input__title">Product Name</p>
@@ -21,7 +23,6 @@
                     <p class="input__title">Product Description</p>
                     <textarea name = "description" placeholder="Type here..."></textarea>
                     <div class="button__element">
-                        <a href = "{% url 'webkiosk:food-items' %}"><button class="button secondary-btn">Never mind</button></a>
                         <input type = "submit" name = "submit" value = "Save Product" class="form-btn primary-btn full-button-width margin-12">
                     </div>
                 </form>
