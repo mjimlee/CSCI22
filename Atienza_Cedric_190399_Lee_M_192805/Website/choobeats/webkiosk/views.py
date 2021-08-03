@@ -258,6 +258,7 @@ def editcustomer(request, pk):
             messages.success(request,"Successfully updated!")
 
             return redirect('webkiosk:customer-list')
+            
     return render(request, 'webkiosk/editcustomer.html', {'editcustomer':context})
 
 def deletepagecustomer(request,pk):
