@@ -9,7 +9,6 @@ from django.shortcuts import get_object_or_404
 from .models import *
 from .forms import FoodForm, OrderForm, CustomerForm, CreateUserForm, LoginForm
 
-
 def home(request):
     return render(request, 'webkiosk/index.html')
 
@@ -36,12 +35,6 @@ def loginpage(request):
             return redirect('webkiosk:dashboard')
         else:
             message = "Your username or password is incorrect. Try again buddy!"
-
-        # if Account.objects.filter(email=em, password=pw).exists():
-        #     return render(request, 'webkiosk/dashboard.html')
-        
-        # else:
-        #     messages.error(request, "Your username or password is incorrect. Please try again.")
         
     return render(request, 'webkiosk/login.html')
 
@@ -84,25 +77,6 @@ def fooddetails(request, pk):
     context = Food.objects.filter(pk=pk)
     return render(request, 'webkiosk/detailsfood.html', {'fooddetails':context})
 
-# def editfood(request, pk):
-#     context = Food.objects.filter(pk=pk)
-#     if request.method == 'POST':
-#         form = FoodForm(request.POST)
-
-#         name = request.POST.get('name')
-#         desc = request.POST.get('description')
-#         price = request.POST.get('price')
-
-#         if Food.objects.filter(name=name, description=desc, price=price).exists():
-#             messages.error(request, "Are you sure you updated things, buddy?")
-        
-#         else:
-#             Food.objects.filter(pk=pk).update(name=name, description=desc,price=price)
-#             messages.success(request,"Successfully edited!")
-#             return redirect('webkiosk:food-items')
-
-#     return render(request, 'webkiosk/editfood.html', {'editfood':context})
-
 def editfood(request, pk):
     context = Food.objects.filter(pk=pk)
     if request.method == 'POST':
@@ -122,7 +96,6 @@ def editfood(request, pk):
             return redirect('webkiosk:food-items')
     
     return render(request, 'webkiosk/editfood.html', {'editfood':context})
-
 
 def deletepagefood(request,pk):
     Food.objects.filter(pk=pk)
@@ -204,8 +177,6 @@ def deleteorder (request, pk):
     return redirect('webkiosk:order-list')
 
 # customer functions
-# customers
-        # fields = ['firstname', 'lastname', email 'address', 'city'] province
 
 def customerlist(request):
     context = Customer.objects.all()
