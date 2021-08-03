@@ -49,7 +49,7 @@ def dashboard(request):
     return render(request, 'webkiosk/dashboard.html', {'orderlist':context})
 
 # food functions
-
+@login_required(login_url='webkiosk:login')
 def fooditems(request):
     context = Food.objects.all()
     return render(request, 'webkiosk/food.html', {'fooditems':context})
@@ -112,7 +112,7 @@ def detailfood(request, pk):
     return render(request, 'webkiosk/food.html', context)
     
 # order functions
-
+@login_required(login_url='webkiosk:login')
 def orderlist(request):
     context = Order.objects.all()
     return render(request, 'webkiosk/orders.html', {'orderlist':context})
@@ -177,7 +177,7 @@ def deleteorder (request, pk):
     return redirect('webkiosk:order-list')
 
 # customer functions
-
+@login_required(login_url='webkiosk:login')
 def customerlist(request):
     context = Customer.objects.all()
     return render(request, 'webkiosk/customers.html', {'customerlist':context})
