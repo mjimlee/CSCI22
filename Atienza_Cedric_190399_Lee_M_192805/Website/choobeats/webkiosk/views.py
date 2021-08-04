@@ -49,11 +49,12 @@ def dashboard(request):
     return render(request, 'webkiosk/dashboard.html', {'orderlist':context})
 
 # food functions
-
+@login_required(login_url='webkiosk:login')
 def fooditems(request):
     context = Food.objects.all()
     return render(request, 'webkiosk/food.html', {'fooditems':context})
 
+@login_required(login_url='webkiosk:login')
 def addfood(request):
     if request.method == 'POST':
         form = FoodForm(request.POST)
@@ -73,10 +74,12 @@ def addfood(request):
     
     return render(request, 'webkiosk/addfood.html')
 
+@login_required(login_url='webkiosk:login')
 def fooddetails(request, pk):
     context = Food.objects.filter(pk=pk)
     return render(request, 'webkiosk/detailsfood.html', {'fooddetails':context})
 
+@login_required(login_url='webkiosk:login')
 def editfood(request, pk):
     context = Food.objects.filter(pk=pk)
     if request.method == 'POST':
@@ -97,26 +100,30 @@ def editfood(request, pk):
     
     return render(request, 'webkiosk/editfood.html', {'editfood':context})
 
+@login_required(login_url='webkiosk:login')
 def deletepagefood(request,pk):
     Food.objects.filter(pk=pk)
     return render(request, 'webkiosk/deletefood.html', {'pk':pk})
 
+@login_required(login_url='webkiosk:login')
 def deletefood (request, pk):
     Food.objects.filter(pk=pk).delete()
     messages.error(request, 'Item successfully removed.')
     return redirect('webkiosk:food-items')
 
+@login_required(login_url='webkiosk:login')
 def detailfood(request, pk):
     food = Food.objects.get(id=pk)
     context = {'food': food}
     return render(request, 'webkiosk/food.html', context)
     
 # order functions
-
+@login_required(login_url='webkiosk:login')
 def orderlist(request):
     context = Order.objects.all()
     return render(request, 'webkiosk/orders.html', {'orderlist':context})
 
+@login_required(login_url='webkiosk:login')
 def addorder(request):
     allfood = Food.objects.all()
     allcustomer = Customer.objects.all()
@@ -139,11 +146,13 @@ def addorder(request):
     
     return render(request, 'webkiosk/addorders.html', {'foods':allfood, 'customers':allcustomer})
 
+@login_required(login_url='webkiosk:login')
 def detailorder(request, pk):
     order = Order.objects.get(id=pk)
     context ={'order': order}
     return render(request, 'webkiosk/detailsorder.html', context)
 
+@login_required(login_url='webkiosk:login')
 def editorder(request, pk):
     allfood = Food.objects.all()
     allcustomer = Customer.objects.all()
@@ -167,21 +176,24 @@ def editorder(request, pk):
     
     return render(request, 'webkiosk/editorder.html', {'foods':allfood, 'customers':allcustomer, 'editorder':context})
 
+@login_required(login_url='webkiosk:login')
 def deletepageorder(request,pk):
     Order.objects.filter(pk=pk)
     return render(request, 'webkiosk/deleteorder.html', {'pk':pk})
 
+@login_required(login_url='webkiosk:login')
 def deleteorder (request, pk):
     Order.objects.filter(pk=pk).delete()
     messages.error(request, 'Item successfully removed.')
     return redirect('webkiosk:order-list')
 
 # customer functions
-
+@login_required(login_url='webkiosk:login')
 def customerlist(request):
     context = Customer.objects.all()
     return render(request, 'webkiosk/customers.html', {'customerlist':context})
 
+@login_required(login_url='webkiosk:login')
 def addcustomer(request):
     if request.method == 'POST':
         form = CustomerForm(request.POST)
@@ -204,10 +216,12 @@ def addcustomer(request):
     
     return render(request, 'webkiosk/addcustomer.html')
 
+@login_required(login_url='webkiosk:login')
 def customerdetails(request, pk):
     context = Customer.objects.filter(pk=pk)
     return render(request, 'webkiosk/detailscustomer.html', {'customerdetails':context})
 
+@login_required(login_url='webkiosk:login')
 def editcustomer(request, pk):
     context = Customer.objects.filter(pk=pk)
     if request.method == 'POST':
@@ -232,10 +246,12 @@ def editcustomer(request, pk):
             
     return render(request, 'webkiosk/editcustomer.html', {'editcustomer':context})
 
+@login_required(login_url='webkiosk:login')
 def deletepagecustomer(request,pk):
     Customer.objects.filter(pk=pk)
     return render(request, 'webkiosk/deletecustomer.html', {'pk':pk})
 
+@login_required(login_url='webkiosk:login')
 def deletecustomer (request, pk):
     Customer.objects.filter(pk=pk).delete()
     messages.error(request, 'Customer successfully removed.')
